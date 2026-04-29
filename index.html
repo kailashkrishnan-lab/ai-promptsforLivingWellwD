@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Prompts — AI for Living Well with Disability</title>
+  <meta name="description" content="61 ready-to-use AI prompts from 'AI for Living Well with Disability' by Kailash Iyer. Copy and paste into any AI tool."/>
+  <style>
+    :root {
+      --blue: #2E75B6;
+      --blue-light: #F0F7FF;
+      --blue-dark: #1F3864;
+      --green: #375623;
+      --green-light: #F0FFF4;
+      --text: #1a1a2e;
+      --text-muted: #555;
+      --border: #e0e8f0;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --radius: 10px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--blue-dark);
+      color: white;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .site-header .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .site-header h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .site-header .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-bottom: 1.2rem;
+    }
+    .badge-row {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+    }
+
+    /* ── SEARCH ── */
+    .search-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .search-bar input {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-bar input:focus { border-color: var(--blue); }
+    .search-count { font-size: 0.82rem; color: var(--text-muted); white-space: nowrap; }
+
+    /* ── NAV ── */
+    .chapter-nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      overflow-x: auto;
+      display: flex;
+      gap: 0.4rem;
+      scrollbar-width: none;
+    }
+    .chapter-nav::-webkit-scrollbar { display: none; }
+    .chapter-nav a {
+      text-decoration: none;
+      color: var(--blue-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .chapter-nav a:hover {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+
+    /* ── MAIN ── */
+    main { max-width: 900px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+
+    /* ── CHAPTER SECTION ── */
+    .chapter-section { margin-bottom: 3rem; }
+    .chapter-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--blue-light);
+      flex-wrap: wrap;
+    }
+    .chapter-label {
+      background: var(--blue);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .chapter-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      flex: 1;
+    }
+    .prompt-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* ── PROMPT CARD ── */
+    .cards-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .prompt-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
+    }
+    .prompt-card:hover { box-shadow: 0 4px 16px rgba(46,117,182,0.12); }
+    .prompt-card.hidden { display: none; }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+    .prompt-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      line-height: 1.3;
+    }
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--blue-light);
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      border-radius: 6px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .copy-btn:hover { background: var(--blue); color: white; }
+    .copy-btn.copied { background: var(--green); border-color: var(--green); color: white; }
+
+    .when-to-use {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      background: #fffbf0;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      border-left: 3px solid #F4B942;
+    }
+
+    .prompt-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: var(--blue-light);
+      padding: 0.9rem 1rem;
+      border-radius: 6px;
+      margin: 0;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+    .site-footer a { color: var(--blue); text-decoration: none; }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      display: none;
+    }
+    .no-results.visible { display: block; }
+
+    @media (max-width: 600px) {
+      .site-header { padding: 1.75rem 1rem 1.5rem; }
+      main { padding: 1rem 0.9rem 3rem; }
+      .prompt-text { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <p class="eyebrow">Companion Resource</p>
+  <h1>AI for Living Well with Disability</h1>
+  <p class="subtitle">All 61 copy-paste prompts from the book, organised by chapter</p>
+  <div class="badge-row">
+    <span class="badge">📚 18 Chapters</span>
+    <span class="badge">📋 61 Prompts</span>
+    <span class="badge">✂️ Copy with one click</span>
+  </div>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search prompts… e.g. 'medical bill', 'medication reminder'" aria-label="Search prompts" oninput="filterPrompts()"/>
+  <span class="search-count" id="searchCount">61 prompts</span>
+</div>
+
+<nav class="chapter-nav" aria-label="Jump to chapter">
+  <a href="#ch1">Ch 1</a>
+<a href="#ch2">Ch 2</a>
+<a href="#ch3">Ch 3</a>
+<a href="#ch4">Ch 4</a>
+<a href="#ch5">Ch 5</a>
+<a href="#ch6">Ch 6</a>
+<a href="#ch7">Ch 7</a>
+<a href="#ch8">Ch 8</a>
+<a href="#ch9">Ch 9</a>
+<a href="#ch10">Ch 10</a>
+<a href="#ch11">Ch 11</a>
+<a href="#ch12">Ch 12</a>
+<a href="#ch13">Ch 13</a>
+<a href="#ch14">Ch 14</a>
+<a href="#ch15">Ch 15</a>
+<a href="#ch16">Ch 16</a>
+<a href="#ch18">Ch 18</a>
+
+</nav>
+
+<main id="mainContent">
+  
+<section class="chapter-section" id="ch1">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 1</span>
+    <h2 class="chapter-title">You Already Know Enough</h2>
+    <span class="prompt-count">1 prompt</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch1-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Your Very First Prompt</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I am new to AI and have never used it before. Can you introduce yourself and tell me three specific ways you could help someone who is a senior or has a disability? Please keep your answer short and use simple language.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Right now — your first conversation with AI</div>
+  <pre class="prompt-text">I am new to AI and have never used it before. Can you introduce yourself and tell me three specific ways you could help someone who is a senior or has a disability? Please keep your answer short and use simple language.</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch2">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 2</span>
+    <h2 class="chapter-title">Your Free Toolbox</h2>
+    <span class="prompt-count">1 prompt</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch2-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Test Your New Tool</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I just set up this tool for the first time. I am a senior / person with a disability and want to use AI to help with everyday tasks like writing letters, understanding bills, and saving money. What are the three most useful things I should try first?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Right after setting up any tool for the first time</div>
+  <pre class="prompt-text">I just set up this tool for the first time. I am a senior / person with a disability and want to use AI to help with everyday tasks like writing letters, understanding bills, and saving money. What are the three most useful things I should try first?</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch3">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 3</span>
+    <h2 class="chapter-title">Talking to AI — Your First Real Conversation</h2>
+    <span class="prompt-count">9 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch3-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Too long / too complicated</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "That's more than I need. Can you simplify this and give me just the three most important points? Please use very plain language.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When the answer is confusing or overwhelming</div>
+  <pre class="prompt-text">That&#x27;s more than I need. Can you simplify this and give me just the three most important points? Please use very plain language.</pre>
+</div>
+<div class="prompt-card" id="ch3-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Wrong focus</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "That's not quite what I was asking. Let me be more specific: [restate your question with more detail]. Please focus only on that.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When AI answered a different question than you asked</div>
+  <pre class="prompt-text">That&#x27;s not quite what I was asking. Let me be more specific: [restate your question with more detail]. Please focus only on that.</pre>
+</div>
+<div class="prompt-card" id="ch3-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Needs personalising</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "This feels too general. My specific situation is: [add your details]. Can you revise your answer with that in mind?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When the answer is too generic</div>
+  <pre class="prompt-text">This feels too general. My specific situation is: [add your details]. Can you revise your answer with that in mind?</pre>
+</div>
+<div class="prompt-card" id="ch3-p4">
+  <div class="card-header">
+    <h3 class="prompt-title">Verify the answer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Before I act on this, can you tell me how confident you are in this information, and whether I should verify it with a professional or official source?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you&#x27;re unsure if the information is accurate</div>
+  <pre class="prompt-text">Before I act on this, can you tell me how confident you are in this information, and whether I should verify it with a professional or official source?</pre>
+</div>
+<div class="prompt-card" id="ch3-p5">
+  <div class="card-header">
+    <h3 class="prompt-title">Understanding a Confusing Document</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I am [your age] years old and I received a [type of document] from [who sent it]. I don't understand what it's asking me to do. Here is the confusing part:\n\n[paste the text here]\n\nCan you explain this in plain English? What does it mean and what, if anything, do I need to do next?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Any letter, notice, bill, or form you don&#x27;t understand</div>
+  <pre class="prompt-text">I am [your age] years old and I received a [type of document] from [who sent it]. I don&#x27;t understand what it&#x27;s asking me to do. Here is the confusing part:
+
+[paste the text here]
+
+Can you explain this in plain English? What does it mean and what, if anything, do I need to do next?</pre>
+</div>
+<div class="prompt-card" id="ch3-p6">
+  <div class="card-header">
+    <h3 class="prompt-title">Writing a Letter or Email</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a [letter / email] to [who] about [the situation]. My goal is to [what you want to happen]. I am [brief description of your situation \u2014 e.g. a senior on a fixed income, a person with a disability, a long-time customer]. Please write this in a polite but firm tone, keep it under [length], and make it easy for me to personalise.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Any time you need to communicate firmly but politely in writing</div>
+  <pre class="prompt-text">I need to write a [letter / email] to [who] about [the situation]. My goal is to [what you want to happen]. I am [brief description of your situation — e.g. a senior on a fixed income, a person with a disability, a long-time customer]. Please write this in a polite but firm tone, keep it under [length], and make it easy for me to personalise.</pre>
+</div>
+<div class="prompt-card" id="ch3-p7">
+  <div class="card-header">
+    <h3 class="prompt-title">Comparing Options</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to compare [Option A] and [Option B]. I am [your situation \u2014 age, income level, health needs, etc.]. The most important factors for me are [list 2\u20133 things that matter most]. Can you give me a simple side-by-side comparison and a recommendation based on my situation?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you need to choose between two plans, products, or services</div>
+  <pre class="prompt-text">I need to compare [Option A] and [Option B]. I am [your situation — age, income level, health needs, etc.]. The most important factors for me are [list 2–3 things that matter most]. Can you give me a simple side-by-side comparison and a recommendation based on my situation?</pre>
+</div>
+<div class="prompt-card" id="ch3-p8">
+  <div class="card-header">
+    <h3 class="prompt-title">Preparing for an Appointment or Phone Call</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I have a [type of appointment / call] coming up with [who] on [topic]. My situation is: [brief description]. I want to make sure I don't forget anything important. Can you help me make a short list of the most important questions to ask, and anything I should bring or have ready?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Before any important meeting, doctor visit, or call to a company</div>
+  <pre class="prompt-text">I have a [type of appointment / call] coming up with [who] on [topic]. My situation is: [brief description]. I want to make sure I don&#x27;t forget anything important. Can you help me make a short list of the most important questions to ask, and anything I should bring or have ready?</pre>
+</div>
+<div class="prompt-card" id="ch3-p9">
+  <div class="card-header">
+    <h3 class="prompt-title">Explaining Something to a Family Member</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to explain [topic] to my [family member / friend] who is [brief description \u2014 e.g. not familiar with medical terms, uncomfortable with technology]. Can you give me a simple, friendly explanation I could share with them \u2014 no jargon, no more than a few short paragraphs?")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you understand something but need help putting it into clear words for someone else</div>
+  <pre class="prompt-text">I need to explain [topic] to my [family member / friend] who is [brief description — e.g. not familiar with medical terms, uncomfortable with technology]. Can you give me a simple, friendly explanation I could share with them — no jargon, no more than a few short paragraphs?</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch4">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 4</span>
+    <h2 class="chapter-title">Cut Your Bills — AI-Powered Negotiation Scripts</h2>
+    <span class="prompt-count">5 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch4-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Cable and Internet Negotiation Script</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need help preparing a polite but firm negotiation script for a phone call with my cable/internet provider.\nMy situation:\n- I am [your age] years old and on a fixed income\n- I have been a customer for [X] years\n- My current monthly bill is $[amount]\n- I have not added any new services recently\n- I have seen new-customer rates advertised as low as $[amount if known, or \"significantly less\"]\nPlease write me a short script I can read on the phone. It should:\n1. Thank them for my loyalty as a long-term customer\n2. Explain that I am reviewing my expenses due to my fixed income\n3. Ask whether they can offer me a rate comparable to their current promotions\n4. Include a polite statement that I am considering other options if the rate cannot be adjusted\nKeep it under 150 words and use plain, conversational language.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Before calling your cable or internet provider to request a lower rate</div>
+  <pre class="prompt-text">I need help preparing a polite but firm negotiation script for a phone call with my cable/internet provider.
+My situation:
+- I am [your age] years old and on a fixed income
+- I have been a customer for [X] years
+- My current monthly bill is $[amount]
+- I have not added any new services recently
+- I have seen new-customer rates advertised as low as $[amount if known, or &quot;significantly less&quot;]
+Please write me a short script I can read on the phone. It should:
+1. Thank them for my loyalty as a long-term customer
+2. Explain that I am reviewing my expenses due to my fixed income
+3. Ask whether they can offer me a rate comparable to their current promotions
+4. Include a polite statement that I am considering other options if the rate cannot be adjusted
+Keep it under 150 words and use plain, conversational language.</pre>
+</div>
+<div class="prompt-card" id="ch4-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Medical Bill Reduction Letter</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need help writing a formal letter to a hospital billing department requesting a reduction on a medical bill.\nMy situation:\n- Patient name: [your name]\n- Date of service: [date]\n- Account or bill number: [number if available]\n- Total amount billed: $[amount]\n- I am [your age] years old and [describe your income situation: e.g. \"on Social Security,\" \"retired on a fixed income,\" \"receiving disability benefits\"]\n- I [can / cannot] afford to pay this amount in full\nPlease write a professional letter that:\n1. Identifies me and the bill I am writing about\n2. Respectfully explains my financial situation\n3. Requests a review for financial hardship assistance or charity care\n4. Asks for an itemized bill if one has not been provided\n5. Requests a response within 30 days\nKeep the tone respectful and factual. Use plain, clear language.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you have received a medical bill that is difficult or impossible to pay</div>
+  <pre class="prompt-text">I need help writing a formal letter to a hospital billing department requesting a reduction on a medical bill.
+My situation:
+- Patient name: [your name]
+- Date of service: [date]
+- Account or bill number: [number if available]
+- Total amount billed: $[amount]
+- I am [your age] years old and [describe your income situation: e.g. &quot;on Social Security,&quot; &quot;retired on a fixed income,&quot; &quot;receiving disability benefits&quot;]
+- I [can / cannot] afford to pay this amount in full
+Please write a professional letter that:
+1. Identifies me and the bill I am writing about
+2. Respectfully explains my financial situation
+3. Requests a review for financial hardship assistance or charity care
+4. Asks for an itemized bill if one has not been provided
+5. Requests a response within 30 days
+Keep the tone respectful and factual. Use plain, clear language.</pre>
+</div>
+<div class="prompt-card" id="ch4-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Subscription Cancellation Script</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to cancel a subscription and want a clear, firm script to do so without being persuaded to stay.\nService I am cancelling: [name of service]\nReason: [e.g. \"I no longer use it,\" \"I need to reduce expenses,\" \"I am on a fixed income\"]\nMy preferred method: [phone call / email]\nPlease write me:\n1. A short cancellation script or email (under 100 words) that is polite but firm\n2. A one-sentence response to use if they offer me a discount to stay\n3. A one-sentence response to use if they offer to \"pause\" my account instead\nI do not want to be convinced to keep the subscription. I just want it cancelled.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to cancel a subscription by phone or email without being talked back into it</div>
+  <pre class="prompt-text">I need to cancel a subscription and want a clear, firm script to do so without being persuaded to stay.
+Service I am cancelling: [name of service]
+Reason: [e.g. &quot;I no longer use it,&quot; &quot;I need to reduce expenses,&quot; &quot;I am on a fixed income&quot;]
+My preferred method: [phone call / email]
+Please write me:
+1. A short cancellation script or email (under 100 words) that is polite but firm
+2. A one-sentence response to use if they offer me a discount to stay
+3. A one-sentence response to use if they offer to &quot;pause&quot; my account instead
+I do not want to be convinced to keep the subscription. I just want it cancelled.</pre>
+</div>
+<div class="prompt-card" id="ch4-p4">
+  <div class="card-header">
+    <h3 class="prompt-title">Utility Assistance Finder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need help finding utility and bill assistance programs I may qualify for.\nMy situation:\n- State: [your state]\n- Household size: [number of people]\n- Monthly household income (approximate): $[amount]\n- I am [describe yourself: e.g. \"a senior on Social Security,\" \"a person with a disability on SSDI,\" \"a caregiver for a family member\"]\n- Bills I am struggling with: [e.g. electric, gas, phone, internet]\nPlease:\n1. List the main federal and state assistance programs I should look into, with a one-sentence description of each\n2. Tell me whether I am likely to qualify based on the information I provided\n3. Tell me what documents I would typically need to apply\n4. Provide the most direct way to apply for the top one or two programs")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When utility bills are a hardship and you want to find programs that can help</div>
+  <pre class="prompt-text">I need help finding utility and bill assistance programs I may qualify for.
+My situation:
+- State: [your state]
+- Household size: [number of people]
+- Monthly household income (approximate): $[amount]
+- I am [describe yourself: e.g. &quot;a senior on Social Security,&quot; &quot;a person with a disability on SSDI,&quot; &quot;a caregiver for a family member&quot;]
+- Bills I am struggling with: [e.g. electric, gas, phone, internet]
+Please:
+1. List the main federal and state assistance programs I should look into, with a one-sentence description of each
+2. Tell me whether I am likely to qualify based on the information I provided
+3. Tell me what documents I would typically need to apply
+4. Provide the most direct way to apply for the top one or two programs</pre>
+</div>
+<div class="prompt-card" id="ch4-p5">
+  <div class="card-header">
+    <h3 class="prompt-title">Escalation and Callback Script</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "The first customer service agent told me they couldn\u2019t help lower my bill. I want to escalate politely.\nPlease give me:\n1. A short, polite sentence to ask to be transferred to the Retention or Loyalty department\n2. A sentence to use if they say there is no such department\n3. A sentence to use if they put me on hold and come back with the same answer\n4. The exact phrase to use at the end of the call if I still don\u2019t get a result \u2014 something that signals I may leave, without burning the relationship\nKeep all four responses under 30 words each. I want them to sound calm and reasonable, not angry.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When the first agent says no and you need to take the conversation further</div>
+  <pre class="prompt-text">The first customer service agent told me they couldn’t help lower my bill. I want to escalate politely.
+Please give me:
+1. A short, polite sentence to ask to be transferred to the Retention or Loyalty department
+2. A sentence to use if they say there is no such department
+3. A sentence to use if they put me on hold and come back with the same answer
+4. The exact phrase to use at the end of the call if I still don’t get a result — something that signals I may leave, without burning the relationship
+Keep all four responses under 30 words each. I want them to sound calm and reasonable, not angry.</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch5">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 5</span>
+    <h2 class="chapter-title">AI for Everyday Correspondence</h2>
+    <span class="prompt-count">8 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch5-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">IRS Letter Decoder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I received a letter from the IRS. Please summarize it in plain English.\nTell me:\n1) What the letter is about\n2) What the IRS is asking for\n3) Any deadlines mentioned\n4) What my next steps should be in general terms\nDo NOT give tax advice. Just explain the letter clearly.\nHere is the letter text:\n[paste the letter text here]")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you receive any letter from the IRS and don&#x27;t understand what it means or what to do</div>
+  <pre class="prompt-text">I received a letter from the IRS. Please summarize it in plain English.
+Tell me:
+1) What the letter is about
+2) What the IRS is asking for
+3) Any deadlines mentioned
+4) What my next steps should be in general terms
+Do NOT give tax advice. Just explain the letter clearly.
+Here is the letter text:
+[paste the letter text here]</pre>
+</div>
+<div class="prompt-card" id="ch5-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Medical Report Simplifier</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Please summarize this medical report in plain English.\nExplain what each section means, define any medical terms, and highlight anything\nthat the doctor may want to discuss at my next appointment.\nDo NOT give medical advice or interpret results \u2014 just explain the wording clearly.\nHere is the report text:\n[paste the report or lab results here]")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you receive a medical report, lab results, or radiology summary you don&#x27;t understand</div>
+  <pre class="prompt-text">Please summarize this medical report in plain English.
+Explain what each section means, define any medical terms, and highlight anything
+that the doctor may want to discuss at my next appointment.
+Do NOT give medical advice or interpret results — just explain the wording clearly.
+Here is the report text:
+[paste the report or lab results here]</pre>
+</div>
+<div class="prompt-card" id="ch5-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">EOB Breakdown</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Here is my Explanation of Benefits (EOB). Please summarize it in plain English.\nTell me:\n1) What was billed\n2) What my insurance covered\n3) What was denied and why\n4) What I am responsible for paying\n5) Whether anything looks unusual that I should question\nDo NOT give medical or financial advice \u2014 just explain what the document says.\nHere is the EOB text:\n[paste the EOB text here]")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you receive an Explanation of Benefits from Medicare, Medicaid, or any insurance plan</div>
+  <pre class="prompt-text">Here is my Explanation of Benefits (EOB). Please summarize it in plain English.
+Tell me:
+1) What was billed
+2) What my insurance covered
+3) What was denied and why
+4) What I am responsible for paying
+5) Whether anything looks unusual that I should question
+Do NOT give medical or financial advice — just explain what the document says.
+Here is the EOB text:
+[paste the EOB text here]</pre>
+</div>
+<div class="prompt-card" id="ch5-p4">
+  <div class="card-header">
+    <h3 class="prompt-title">Denial Letter Analysis</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Please summarize this denial letter in plain English.\nTell me:\n1) Why the claim or application was denied\n2) What information or documentation appears to be missing\n3) What the typical next steps are after this type of denial\n4) What I should gather before filing an appeal\nDo NOT give legal advice \u2014 just explain the letter clearly.\nHere is the denial letter text:\n[paste the letter here]")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you receive a denial from insurance, Medicare, disability benefits, housing assistance, or any program</div>
+  <pre class="prompt-text">Please summarize this denial letter in plain English.
+Tell me:
+1) Why the claim or application was denied
+2) What information or documentation appears to be missing
+3) What the typical next steps are after this type of denial
+4) What I should gather before filing an appeal
+Do NOT give legal advice — just explain the letter clearly.
+Here is the denial letter text:
+[paste the letter here]</pre>
+</div>
+<div class="prompt-card" id="ch5-p5">
+  <div class="card-header">
+    <h3 class="prompt-title">Appeal Letter Draft</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Write a clear, polite appeal letter responding to this denial.\nMy situation:\n- What was denied: [describe briefly]\n- The reason given in the denial: [copy from the letter]\n- Why I believe the decision should be reconsidered: [your explanation]\n- Supporting documents I can provide: [list what you have]\nThe letter should include:\n- A brief summary of the issue\n- A respectful request for reconsideration\n- A list of documents I am attaching\n- A request for written confirmation of receipt\nKeep the tone professional and respectful. Do NOT include legal arguments.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> After a denial — insurance, Medicare, disability, housing, or any benefit you were refused</div>
+  <pre class="prompt-text">Write a clear, polite appeal letter responding to this denial.
+My situation:
+- What was denied: [describe briefly]
+- The reason given in the denial: [copy from the letter]
+- Why I believe the decision should be reconsidered: [your explanation]
+- Supporting documents I can provide: [list what you have]
+The letter should include:
+- A brief summary of the issue
+- A respectful request for reconsideration
+- A list of documents I am attaching
+- A request for written confirmation of receipt
+Keep the tone professional and respectful. Do NOT include legal arguments.</pre>
+</div>
+<div class="prompt-card" id="ch5-p6">
+  <div class="card-header">
+    <h3 class="prompt-title">Billing Dispute Letter</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Write a polite but firm letter to [company name] about a billing error.\nMy situation:\n- The error: I was incorrectly charged for [describe the item or service]\n- The amount in dispute: $[amount]\n- What actually happened: [brief explanation]\n- What I am requesting: [correction / refund / adjustment]\n- My account number (if relevant): [number]\nKeep the tone professional. Request a written response within 14 days.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you&#x27;ve been incorrectly charged by a company, provider, or utility and need it corrected in writing</div>
+  <pre class="prompt-text">Write a polite but firm letter to [company name] about a billing error.
+My situation:
+- The error: I was incorrectly charged for [describe the item or service]
+- The amount in dispute: $[amount]
+- What actually happened: [brief explanation]
+- What I am requesting: [correction / refund / adjustment]
+- My account number (if relevant): [number]
+Keep the tone professional. Request a written response within 14 days.</pre>
+</div>
+<div class="prompt-card" id="ch5-p7">
+  <div class="card-header">
+    <h3 class="prompt-title">Landlord Repair Request</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Write a clear, polite letter to my landlord requesting a repair.\nMy situation:\n- The issue: [describe the problem \u2014 e.g. leaking faucet in the kitchen]\n- When I first noticed it: [date]\n- Whether I reported it before: [yes/no \u2014 if yes, when]\n- Any impact on my health, safety, or daily life: [describe if relevant]\n- What I am requesting: a response and a reasonable timeline for completion\nKeep the tone respectful and factual. I want to maintain a good relationship.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you need to report a maintenance issue, repair, or problem with your rental in writing</div>
+  <pre class="prompt-text">Write a clear, polite letter to my landlord requesting a repair.
+My situation:
+- The issue: [describe the problem — e.g. leaking faucet in the kitchen]
+- When I first noticed it: [date]
+- Whether I reported it before: [yes/no — if yes, when]
+- Any impact on my health, safety, or daily life: [describe if relevant]
+- What I am requesting: a response and a reasonable timeline for completion
+Keep the tone respectful and factual. I want to maintain a good relationship.</pre>
+</div>
+<div class="prompt-card" id="ch5-p8">
+  <div class="card-header">
+    <h3 class="prompt-title">Personal Paperwork Organizer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to organize my personal paperwork and create a simple system I can actually maintain.\nMy situation:\n- I manage paperwork for: [just myself / myself and a spouse / myself and a family member I care for]\n- My main categories of documents: medical, insurance, bills, government correspondence, housing\n- I prefer: [paper folders / digital folders on my computer / both]\nPlease create:\n1) A simple folder structure with clear category names\n2) A checklist of the key documents I should have on file for each category\n3) A short routine (monthly or quarterly) for keeping the system up to date\n4) A list of the most important documents to locate first if I'm starting from scratch\nKeep everything simple and easy to follow.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to create a simple, logical filing system for your important documents</div>
+  <pre class="prompt-text">I want to organize my personal paperwork and create a simple system I can actually maintain.
+My situation:
+- I manage paperwork for: [just myself / myself and a spouse / myself and a family member I care for]
+- My main categories of documents: medical, insurance, bills, government correspondence, housing
+- I prefer: [paper folders / digital folders on my computer / both]
+Please create:
+1) A simple folder structure with clear category names
+2) A checklist of the key documents I should have on file for each category
+3) A short routine (monthly or quarterly) for keeping the system up to date
+4) A list of the most important documents to locate first if I&#x27;m starting from scratch
+Keep everything simple and easy to follow.</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch6">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 6</span>
+    <h2 class="chapter-title">Smart Shopping — Deals, Coupons, and Benefit Programs</h2>
+    <span class="prompt-count">4 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch6-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Best Price Finder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I am looking to buy [item name and description] in [your city/state or online].\nMy situation:\n- I am [your age] / a senior / a person with a disability [choose what applies]\n- I am looking for the lowest total cost including any fees or shipping\n- I am open to: generic versions / store brands / online options [delete what doesn't apply]\nPlease tell me:\n1) Where I am likely to find the lowest price for this item\n2) Any discount programmes, cards, or coupons that apply to this purchase\n3) Any senior, veteran, or disability discounts I should ask about\n4) One thing I should watch out for when buying this")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Before buying anything — medication, appliance, service, or grocery item</div>
+  <pre class="prompt-text">I am looking to buy [item name and description] in [your city/state or online].
+My situation:
+- I am [your age] / a senior / a person with a disability [choose what applies]
+- I am looking for the lowest total cost including any fees or shipping
+- I am open to: generic versions / store brands / online options [delete what doesn&#x27;t apply]
+Please tell me:
+1) Where I am likely to find the lowest price for this item
+2) Any discount programmes, cards, or coupons that apply to this purchase
+3) Any senior, veteran, or disability discounts I should ask about
+4) One thing I should watch out for when buying this</pre>
+</div>
+<div class="prompt-card" id="ch6-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Prescription Price Comparison</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to find the lowest cost option for my prescription medication.\nMedication details:\n- Name: [medication name]\n- Dosage: [e.g. 10mg]\n- Quantity: [e.g. 30 tablets / 90-day supply]\n- My zip code: [zip code]\n- My insurance: [Medicare Part D / Medicaid / private insurance / no insurance]\nPlease tell me:\n1) Which pharmacies near me are likely to have the lowest price\n2) Which free discount cards or programmes apply (GoodRx, RxSaver, NeedyMeds, etc.)\n3) Whether a generic version exists and what it typically costs\n4) Whether I may qualify for manufacturer patient assistance for this medication\n5) Any Medicare Extra Help or other programme I should look into")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Before filling any prescription — new or existing</div>
+  <pre class="prompt-text">I need to find the lowest cost option for my prescription medication.
+Medication details:
+- Name: [medication name]
+- Dosage: [e.g. 10mg]
+- Quantity: [e.g. 30 tablets / 90-day supply]
+- My zip code: [zip code]
+- My insurance: [Medicare Part D / Medicaid / private insurance / no insurance]
+Please tell me:
+1) Which pharmacies near me are likely to have the lowest price
+2) Which free discount cards or programmes apply (GoodRx, RxSaver, NeedyMeds, etc.)
+3) Whether a generic version exists and what it typically costs
+4) Whether I may qualify for manufacturer patient assistance for this medication
+5) Any Medicare Extra Help or other programme I should look into</pre>
+</div>
+<div class="prompt-card" id="ch6-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Senior and Disability Discount Finder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to find discounts I qualify for as a [senior aged 65+ / person with a disability / Medicare recipient / veteran \u2014 choose what applies].\nMy location: [city and state]\nPlease give me a list of:\n1) National chains and retailers that offer senior or disability discounts and what percentage they offer\n2) Any phone, internet, or utility programmes specifically for seniors or people on fixed incomes\n3) Grocery store loyalty or senior discount programmes in my area\n4) Streaming, entertainment, or membership discounts I may not know about\n5) One or two things I should always ask about at the register that most people forget")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Anytime you want to find discounts you qualify for — at stores, restaurants, services, or utilities</div>
+  <pre class="prompt-text">I want to find discounts I qualify for as a [senior aged 65+ / person with a disability / Medicare recipient / veteran — choose what applies].
+My location: [city and state]
+Please give me a list of:
+1) National chains and retailers that offer senior or disability discounts and what percentage they offer
+2) Any phone, internet, or utility programmes specifically for seniors or people on fixed incomes
+3) Grocery store loyalty or senior discount programmes in my area
+4) Streaming, entertainment, or membership discounts I may not know about
+5) One or two things I should always ask about at the register that most people forget</pre>
+</div>
+<div class="prompt-card" id="ch6-p4">
+  <div class="card-header">
+    <h3 class="prompt-title">Benefit Programme Eligibility Check</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to find benefit programmes I may qualify for.\nMy situation:\n- Age: [your age]\n- State: [your state]\n- Household size: [number of people]\n- Monthly income (approximate): $[amount]\n- I receive: [Social Security / SSDI / SSI / Medicare / Medicaid / none \u2014 list what applies]\n- I have: [a disability / a chronic condition / none \u2014 list what applies]\nPlease list:\n1) Federal programmes I likely qualify for, with a one-sentence description of each\n2) State or local programmes in [your state] worth applying for\n3) The easiest ones to apply for first\n4) Any programmes with upcoming enrolment deadlines I should know about")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to find government or community assistance programmes you may qualify for</div>
+  <pre class="prompt-text">I want to find benefit programmes I may qualify for.
+My situation:
+- Age: [your age]
+- State: [your state]
+- Household size: [number of people]
+- Monthly income (approximate): $[amount]
+- I receive: [Social Security / SSDI / SSI / Medicare / Medicaid / none — list what applies]
+- I have: [a disability / a chronic condition / none — list what applies]
+Please list:
+1) Federal programmes I likely qualify for, with a one-sentence description of each
+2) State or local programmes in [your state] worth applying for
+3) The easiest ones to apply for first
+4) Any programmes with upcoming enrolment deadlines I should know about</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch7">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 7</span>
+    <h2 class="chapter-title">Health Costs — Comparing Plans and Medication Prices</h2>
+    <span class="prompt-count">5 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch7-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Medicare Plan Comparison</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to compare my Medicare options and find the plan that best fits my situation.\nMy current situation:\n- Age: [your age]\n- State and zip code: [location]\n- Current plan: [e.g. Original Medicare with Medigap Plan G / Medicare Advantage HMO / etc.]\n- My doctors I want to keep: [names or specialties, e.g. cardiologist, primary care]\n- My regular medications: [list name and dosage for each]\n- My approximate monthly premium budget: $[amount]\n- My most important priorities: [e.g. low out-of-pocket, keeping my doctors, dental coverage]\nPlease:\n1) Explain the key tradeoffs between Original Medicare and Medicare Advantage for my situation\n2) Tell me what to look for in a Part D drug plan given my medications\n3) List the questions I should ask before choosing any plan\n4) Tell me how to use Medicare\u2019s official Plan Finder tool at medicare.gov")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> During open enrolment (Oct 15–Dec 7) or any time you want to understand your options</div>
+  <pre class="prompt-text">I want to compare my Medicare options and find the plan that best fits my situation.
+My current situation:
+- Age: [your age]
+- State and zip code: [location]
+- Current plan: [e.g. Original Medicare with Medigap Plan G / Medicare Advantage HMO / etc.]
+- My doctors I want to keep: [names or specialties, e.g. cardiologist, primary care]
+- My regular medications: [list name and dosage for each]
+- My approximate monthly premium budget: $[amount]
+- My most important priorities: [e.g. low out-of-pocket, keeping my doctors, dental coverage]
+Please:
+1) Explain the key tradeoffs between Original Medicare and Medicare Advantage for my situation
+2) Tell me what to look for in a Part D drug plan given my medications
+3) List the questions I should ask before choosing any plan
+4) Tell me how to use Medicare’s official Plan Finder tool at medicare.gov</pre>
+</div>
+<div class="prompt-card" id="ch7-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Annual Notice of Change Decoder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I received my Annual Notice of Change (ANOC) from my Medicare plan.\nPlease read the following sections and tell me:\n1) What is changing about my premiums, deductibles, or copays\n2) Whether any of my regular medications have been removed from the formulary or moved to a higher cost tier\n3) Whether any of my doctors or services might be affected\n4) Whether these changes are significant enough that I should consider switching plans during open enrolment\nHere is the relevant text from the letter:\n[paste the key sections here]")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you receive your Medicare Annual Notice of Change letter each September</div>
+  <pre class="prompt-text">I received my Annual Notice of Change (ANOC) from my Medicare plan.
+Please read the following sections and tell me:
+1) What is changing about my premiums, deductibles, or copays
+2) Whether any of my regular medications have been removed from the formulary or moved to a higher cost tier
+3) Whether any of my doctors or services might be affected
+4) Whether these changes are significant enough that I should consider switching plans during open enrolment
+Here is the relevant text from the letter:
+[paste the key sections here]</pre>
+</div>
+<div class="prompt-card" id="ch7-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Drug Formulary and Cost Explainer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I have been prescribed a new medication and want to understand what it will cost me.\nMy information:\n- Medication name and dosage: [name, e.g. Eliquis 5mg twice daily]\n- My plan: [plan name, or Medicare Part D plan if known]\n- My current plan tier structure (if known): [e.g. Tier 1=$5, Tier 3=$45]\nPlease tell me:\n1) What tier this medication is typically placed on and what that means for my cost\n2) Whether a generic version exists or is expected soon\n3) Whether the manufacturer offers a patient assistance or co-pay card programme\n4) What I can ask my doctor about alternatives if the cost is too high\n5) How to request a formulary exception if I believe this medication should be covered differently")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you’re prescribed a new medication and want to understand what it will cost under your plan</div>
+  <pre class="prompt-text">I have been prescribed a new medication and want to understand what it will cost me.
+My information:
+- Medication name and dosage: [name, e.g. Eliquis 5mg twice daily]
+- My plan: [plan name, or Medicare Part D plan if known]
+- My current plan tier structure (if known): [e.g. Tier 1=$5, Tier 3=$45]
+Please tell me:
+1) What tier this medication is typically placed on and what that means for my cost
+2) Whether a generic version exists or is expected soon
+3) Whether the manufacturer offers a patient assistance or co-pay card programme
+4) What I can ask my doctor about alternatives if the cost is too high
+5) How to request a formulary exception if I believe this medication should be covered differently</pre>
+</div>
+<div class="prompt-card" id="ch7-p4">
+  <div class="card-header">
+    <h3 class="prompt-title">Patient Assistance Programme Finder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need help paying for a medication that I cannot afford at the current cost.\nMy situation:\n- Medication: [name and dosage]\n- Current monthly cost to me: $[amount]\n- My insurance: [Medicare / Medicaid / private / uninsured]\n- My approximate monthly income: $[amount]\n- Household size: [number]\nPlease tell me:\n1) Whether the manufacturer of this drug has a patient assistance programme and how to apply\n2) Any non-profit programmes (NeedyMeds, RxAssist, PAF, etc.) that may help\n3) Whether I qualify for Medicare Extra Help (Low Income Subsidy) and how to apply\n4) The fastest path to getting this medication at a reduced or zero cost\n5) What documentation I will typically need to apply")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When a medication is unaffordable and you need to find a programme to help cover the cost</div>
+  <pre class="prompt-text">I need help paying for a medication that I cannot afford at the current cost.
+My situation:
+- Medication: [name and dosage]
+- Current monthly cost to me: $[amount]
+- My insurance: [Medicare / Medicaid / private / uninsured]
+- My approximate monthly income: $[amount]
+- Household size: [number]
+Please tell me:
+1) Whether the manufacturer of this drug has a patient assistance programme and how to apply
+2) Any non-profit programmes (NeedyMeds, RxAssist, PAF, etc.) that may help
+3) Whether I qualify for Medicare Extra Help (Low Income Subsidy) and how to apply
+4) The fastest path to getting this medication at a reduced or zero cost
+5) What documentation I will typically need to apply</pre>
+</div>
+<div class="prompt-card" id="ch7-p5">
+  <div class="card-header">
+    <h3 class="prompt-title">Pre-Appointment Cost and Question Prep</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I have a medical appointment coming up and want to understand what it might cost me and what to ask.\nMy situation:\n- Type of appointment: [e.g. cardiology follow-up / knee MRI / colonoscopy]\n- My insurance: [plan name and type]\n- My deductible status: [met / not met / unsure]\n- My copay or coinsurance for specialist visits: $[amount or percentage, if known]\nPlease help me:\n1) Understand roughly what this type of appointment typically costs under Medicare or my plan type\n2) List the questions I should ask the office before the appointment about costs\n3) List the questions I should ask during the appointment about any follow-up procedures or referrals\n4) Tell me what to do if I receive a bill afterward that seems higher than expected")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> Before any medical appointment, procedure, or specialist visit</div>
+  <pre class="prompt-text">I have a medical appointment coming up and want to understand what it might cost me and what to ask.
+My situation:
+- Type of appointment: [e.g. cardiology follow-up / knee MRI / colonoscopy]
+- My insurance: [plan name and type]
+- My deductible status: [met / not met / unsure]
+- My copay or coinsurance for specialist visits: $[amount or percentage, if known]
+Please help me:
+1) Understand roughly what this type of appointment typically costs under Medicare or my plan type
+2) List the questions I should ask the office before the appointment about costs
+3) List the questions I should ask during the appointment about any follow-up procedures or referrals
+4) Tell me what to do if I receive a bill afterward that seems higher than expected</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch8">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 8</span>
+    <h2 class="chapter-title">Sell What You Know — Digital Templates and Printables</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch8-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Digital Product Idea Generator</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to create a digital template or printable product to sell online.\nAbout me:\n- My background or career: [e.g. retired nurse / former teacher / lifelong gardener / family caregiver]\n- Skills or knowledge I have: [describe what you know well]\n- Problems I have personally solved or managed: [e.g. managing medications for two people, budgeting on Social Security]\n- Hobbies or interests: [e.g. quilting, cooking, woodworking]\nPlease suggest:\n1) Five specific digital product ideas based on my background that would be practical and sellable\n2) For each idea, tell me who would buy it and why\n3) Which one you think has the best combination of low effort to create and genuine demand\n4) What I should call it and what price range makes sense ($3\u2013$20 is typical)")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to find a sellable template idea based on your own knowledge and experience</div>
+  <pre class="prompt-text">I want to create a digital template or printable product to sell online.
+About me:
+- My background or career: [e.g. retired nurse / former teacher / lifelong gardener / family caregiver]
+- Skills or knowledge I have: [describe what you know well]
+- Problems I have personally solved or managed: [e.g. managing medications for two people, budgeting on Social Security]
+- Hobbies or interests: [e.g. quilting, cooking, woodworking]
+Please suggest:
+1) Five specific digital product ideas based on my background that would be practical and sellable
+2) For each idea, tell me who would buy it and why
+3) Which one you think has the best combination of low effort to create and genuine demand
+4) What I should call it and what price range makes sense ($3–$20 is typical)</pre>
+</div>
+<div class="prompt-card" id="ch8-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Template Content Creator</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to create a digital printable template called [product name].\nWhat it is: [describe in one sentence \u2014 e.g. \"A daily medication and appointment tracker for caregivers managing care for a family member\"]\nWho will use it: [e.g. family caregivers, seniors managing their own health, people with chronic conditions]\nPlease create the full content for this template, including:\n1) A clear title and brief description at the top\n2) All sections and fields the user would fill in, with labels\n3) Any instructions or tips that help the user get value from it\n4) A logical layout order (I will format it in Word or Google Docs)\nKeep the language simple, warm, and easy to use. The finished template should fit on [1 page / 2 pages / however many makes sense].")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you have your product idea and want AI to write the actual content</div>
+  <pre class="prompt-text">I want to create a digital printable template called [product name].
+What it is: [describe in one sentence — e.g. &quot;A daily medication and appointment tracker for caregivers managing care for a family member&quot;]
+Who will use it: [e.g. family caregivers, seniors managing their own health, people with chronic conditions]
+Please create the full content for this template, including:
+1) A clear title and brief description at the top
+2) All sections and fields the user would fill in, with labels
+3) Any instructions or tips that help the user get value from it
+4) A logical layout order (I will format it in Word or Google Docs)
+Keep the language simple, warm, and easy to use. The finished template should fit on [1 page / 2 pages / however many makes sense].</pre>
+</div>
+<div class="prompt-card" id="ch8-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Product Listing Writer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a product listing for my digital printable template.\nProduct details:\n- Product name: [name]\n- What it is: [one sentence description]\n- Who it is for: [target buyer]\n- What problem it solves: [the pain point it addresses]\n- Price: $[amount]\n- Platform: [Etsy / Gumroad / Teachers Pay Teachers / other]\nPlease write:\n1) A listing title (under 140 characters, searchable, clear)\n2) A product description (150\u2013250 words) that explains what the buyer gets, who it's for, and why it's useful\n3) Five tags or keywords I should use so people can find it\n4) A short \"what's included\" bullet list for the listing page")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When your template is ready and you need to write the listing to sell it</div>
+  <pre class="prompt-text">I need to write a product listing for my digital printable template.
+Product details:
+- Product name: [name]
+- What it is: [one sentence description]
+- Who it is for: [target buyer]
+- What problem it solves: [the pain point it addresses]
+- Price: $[amount]
+- Platform: [Etsy / Gumroad / Teachers Pay Teachers / other]
+Please write:
+1) A listing title (under 140 characters, searchable, clear)
+2) A product description (150–250 words) that explains what the buyer gets, who it&#x27;s for, and why it&#x27;s useful
+3) Five tags or keywords I should use so people can find it
+4) A short &quot;what&#x27;s included&quot; bullet list for the listing page</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch9">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 9</span>
+    <h2 class="chapter-title">Write for Pay — Blogs, Newsletters, and Freelance Gigs</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch9-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Blog Post or Newsletter Draft</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to write a blog post or newsletter article on a topic I know from personal experience.\nAbout me: [brief description \u2014 e.g. \"68-year-old retired teacher who has managed rheumatoid arthritis for 12 years\"]\nTopic I want to write about: [describe the topic \u2014 e.g. \"How I learned to pace myself through bad pain days without giving up on the things I love\"]\nMy audience: [who you are writing for \u2014 e.g. \"People over 60 newly dealing with chronic pain\"]\nPlease help me write this article by:\n1) Suggesting a compelling title\n2) Creating a clear outline with 4\u20135 sections\n3) Writing a full draft (500\u2013700 words) in a warm, first-person, conversational tone\n4) Ending with a question or call to action that invites reader responses\nUse plain, honest language. The goal is to feel like advice from a trusted friend, not a medical website.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to write a post on any topic from your experience and need help getting started</div>
+  <pre class="prompt-text">I want to write a blog post or newsletter article on a topic I know from personal experience.
+About me: [brief description — e.g. &quot;68-year-old retired teacher who has managed rheumatoid arthritis for 12 years&quot;]
+Topic I want to write about: [describe the topic — e.g. &quot;How I learned to pace myself through bad pain days without giving up on the things I love&quot;]
+My audience: [who you are writing for — e.g. &quot;People over 60 newly dealing with chronic pain&quot;]
+Please help me write this article by:
+1) Suggesting a compelling title
+2) Creating a clear outline with 4–5 sections
+3) Writing a full draft (500–700 words) in a warm, first-person, conversational tone
+4) Ending with a question or call to action that invites reader responses
+Use plain, honest language. The goal is to feel like advice from a trusted friend, not a medical website.</pre>
+</div>
+<div class="prompt-card" id="ch9-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Freelance Pitch Letter</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to pitch a freelance writing article to a publication or website.\nAbout me:\n- My name: [name]\n- My relevant background: [e.g. \"I am a 71-year-old former school librarian who has lived with Parkinson's disease for six years\"]\n- What I write about: [your topic area]\n- Writing samples or blog (if any): [URL or \"none yet\"]\nThe publication I am pitching: [name and brief description of the outlet]\nThe article I want to pitch: [working title and 2-sentence description]\nPlease write a professional pitch email that:\n1) Opens with a brief, confident introduction of who I am\n2) Describes the article idea clearly in 3\u20134 sentences\n3) Explains why I am the right person to write it\n4) Closes with a clear ask and professional sign-off\nKeep it under 200 words. Warm but professional in tone.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to approach a publication or website about writing for them</div>
+  <pre class="prompt-text">I want to pitch a freelance writing article to a publication or website.
+About me:
+- My name: [name]
+- My relevant background: [e.g. &quot;I am a 71-year-old former school librarian who has lived with Parkinson&#x27;s disease for six years&quot;]
+- What I write about: [your topic area]
+- Writing samples or blog (if any): [URL or &quot;none yet&quot;]
+The publication I am pitching: [name and brief description of the outlet]
+The article I want to pitch: [working title and 2-sentence description]
+Please write a professional pitch email that:
+1) Opens with a brief, confident introduction of who I am
+2) Describes the article idea clearly in 3–4 sentences
+3) Explains why I am the right person to write it
+4) Closes with a clear ask and professional sign-off
+Keep it under 200 words. Warm but professional in tone.</pre>
+</div>
+<div class="prompt-card" id="ch9-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Content Calendar Builder</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to plan a content calendar for my blog or newsletter.\nAbout my writing:\n- Topic area: [your subject \u2014 e.g. caregiving, senior living, chronic illness management, gardening]\n- Audience: [who reads it]\n- Publishing frequency: [e.g. once a week / twice a month]\n- Months to plan: [e.g. the next 6 weeks]\nMy personal experience and angles I can write from: [list a few \u2014 e.g. \"managing my husband's Parkinson's, Medicare navigation, adapted cooking for one hand\"]\nPlease create a content calendar with:\n1) A post title for each publishing date\n2) A 2-sentence description of what each post will cover\n3) Which personal experience or angle I should draw on for each\n4) One that would make a good introductory \"about me\" post if I haven't written one yet")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to plan a month or more of blog posts or newsletter issues in one session</div>
+  <pre class="prompt-text">I want to plan a content calendar for my blog or newsletter.
+About my writing:
+- Topic area: [your subject — e.g. caregiving, senior living, chronic illness management, gardening]
+- Audience: [who reads it]
+- Publishing frequency: [e.g. once a week / twice a month]
+- Months to plan: [e.g. the next 6 weeks]
+My personal experience and angles I can write from: [list a few — e.g. &quot;managing my husband&#x27;s Parkinson&#x27;s, Medicare navigation, adapted cooking for one hand&quot;]
+Please create a content calendar with:
+1) A post title for each publishing date
+2) A 2-sentence description of what each post will cover
+3) Which personal experience or angle I should draw on for each
+4) One that would make a good introductory &quot;about me&quot; post if I haven&#x27;t written one yet</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch10">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 10</span>
+    <h2 class="chapter-title">Micro-Services — Offering AI-Assisted Help to Others</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch10-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Service Menu Creator</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to create a simple menu of services I can offer to local people and small businesses using AI tools.\nAbout me:\n- My background: [e.g. \"retired administrative assistant with 20 years of office experience\"]\n- Skills I am confident in: [e.g. writing, organising, formatting documents, communication]\n- Tools I have access to: [e.g. Word, Google Docs, AI tools like ChatGPT or Claude]\n- How many hours per week I can work: [number]\n- My physical or energy limitations (if relevant): [e.g. limited typing, need to work in short sessions]\nPlease:\n1) Suggest a menu of 4\u20136 specific services I could offer, with a plain-English description of each\n2) Recommend a fair price range for each service\n3) Describe the typical client for each service so I know who to approach\n4) Tell me which one would be the easiest to start with and why")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to define the services you will offer and how to describe them to potential clients</div>
+  <pre class="prompt-text">I want to create a simple menu of services I can offer to local people and small businesses using AI tools.
+About me:
+- My background: [e.g. &quot;retired administrative assistant with 20 years of office experience&quot;]
+- Skills I am confident in: [e.g. writing, organising, formatting documents, communication]
+- Tools I have access to: [e.g. Word, Google Docs, AI tools like ChatGPT or Claude]
+- How many hours per week I can work: [number]
+- My physical or energy limitations (if relevant): [e.g. limited typing, need to work in short sessions]
+Please:
+1) Suggest a menu of 4–6 specific services I could offer, with a plain-English description of each
+2) Recommend a fair price range for each service
+3) Describe the typical client for each service so I know who to approach
+4) Tell me which one would be the easiest to start with and why</pre>
+</div>
+<div class="prompt-card" id="ch10-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Client Outreach Message</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to reach out to a potential client about a small service I can offer them.\nAbout me: [brief description of your background and what you can do]\nThe person or organisation I am reaching out to: [e.g. \"the pastor of my church\" / \"the owner of a small bakery I visit regularly\"]\nThe service I want to offer: [specific service \u2014 e.g. \"a monthly one-page newsletter about their events and specials\"]\nPlease write a short, friendly outreach message (spoken or written) that:\n1) Mentions that I noticed something specific they might need help with\n2) Briefly explains what I can do and how it works\n3) Suggests a simple, low-commitment starting point (e.g. \"I'll do the first one free so you can see if you like it\")\n4) Ends with a simple, easy yes-or-no question\nKeep it warm, brief, and not salesy. I want this to feel like a neighbourly offer, not a sales pitch.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you want to let someone know about your services and offer to help</div>
+  <pre class="prompt-text">I want to reach out to a potential client about a small service I can offer them.
+About me: [brief description of your background and what you can do]
+The person or organisation I am reaching out to: [e.g. &quot;the pastor of my church&quot; / &quot;the owner of a small bakery I visit regularly&quot;]
+The service I want to offer: [specific service — e.g. &quot;a monthly one-page newsletter about their events and specials&quot;]
+Please write a short, friendly outreach message (spoken or written) that:
+1) Mentions that I noticed something specific they might need help with
+2) Briefly explains what I can do and how it works
+3) Suggests a simple, low-commitment starting point (e.g. &quot;I&#x27;ll do the first one free so you can see if you like it&quot;)
+4) Ends with a simple, easy yes-or-no question
+Keep it warm, brief, and not salesy. I want this to feel like a neighbourly offer, not a sales pitch.</pre>
+</div>
+<div class="prompt-card" id="ch10-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Professional Response Writer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a professional response on behalf of a client.\nType of response: [e.g. Google review response / customer complaint / community letter]\nAbout the client: [e.g. \"a small family-owned restaurant in a suburban neighbourhood\"]\nThe message I am responding to: [paste the review, complaint, or letter]\nTone: [e.g. warm and appreciative / firm but respectful / apologetic and solution-focused]\nLength: [e.g. under 75 words / one short paragraph]\nPlease write a response that sounds genuine and human \u2014 not corporate. The client should feel comfortable sending this exactly as written.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you are writing responses to reviews, messages, or correspondence on behalf of a client</div>
+  <pre class="prompt-text">I need to write a professional response on behalf of a client.
+Type of response: [e.g. Google review response / customer complaint / community letter]
+About the client: [e.g. &quot;a small family-owned restaurant in a suburban neighbourhood&quot;]
+The message I am responding to: [paste the review, complaint, or letter]
+Tone: [e.g. warm and appreciative / firm but respectful / apologetic and solution-focused]
+Length: [e.g. under 75 words / one short paragraph]
+Please write a response that sounds genuine and human — not corporate. The client should feel comfortable sending this exactly as written.</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch11">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 11</span>
+    <h2 class="chapter-title">Your First Online Store — From Idea to First Sale</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch11-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">Shop About Section Writer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write an About section for my online shop.\nAbout me:\n- Name (first name or shop name): [name]\n- My background: [e.g. \"retired practical nurse with 30 years of healthcare experience and five years as a family caregiver\"]\n- What I sell: [e.g. \"digital printable planners and templates for family caregivers\"]\n- Who my customers are: [e.g. \"adult children managing care for an ageing parent\"]\n- What makes my products different: [e.g. \"I created these tools from real caregiving experience \u2014 not theory\"]\nPlease write an About section (100\u2013150 words) that:\n1) Opens with a warm, human first sentence\n2) Explains who I am and why I make what I make\n3) Describes what buyers will find in my shop\n4) Ends with a sentence that makes a potential buyer feel welcome and confident\nWrite in first person, plain English, warm and genuine in tone.")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When setting up your Etsy, Gumroad, or Ko-fi shop and writing your About / seller description</div>
+  <pre class="prompt-text">I need to write an About section for my online shop.
+About me:
+- Name (first name or shop name): [name]
+- My background: [e.g. &quot;retired practical nurse with 30 years of healthcare experience and five years as a family caregiver&quot;]
+- What I sell: [e.g. &quot;digital printable planners and templates for family caregivers&quot;]
+- Who my customers are: [e.g. &quot;adult children managing care for an ageing parent&quot;]
+- What makes my products different: [e.g. &quot;I created these tools from real caregiving experience — not theory&quot;]
+Please write an About section (100–150 words) that:
+1) Opens with a warm, human first sentence
+2) Explains who I am and why I make what I make
+3) Describes what buyers will find in my shop
+4) Ends with a sentence that makes a potential buyer feel welcome and confident
+Write in first person, plain English, warm and genuine in tone.</pre>
+</div>
+<div class="prompt-card" id="ch11-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Product Listing Writer</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a product listing for my online shop.\nProduct details:\n- Product name: [name]\n- What it is: [plain description]\n- Who it is for: [your target buyer]\n- What problem it solves or need it fills: [the pain point]\n- What is included: [e.g. \"a 2-page printable PDF, instant download\"]\n- Price: $[amount]\n- Platform: [Etsy / Gumroad / Ko-fi]\nPlease write:\n1) A listing title (under 140 characters, clear and searchable)\n2) A product description (150\u2013200 words) focused on what the product does for the buyer, not just what it is\n3) A \"What You Get\" bullet list (4\u20136 items)\n4) Five search tags or keywords\n5) One sentence for a FAQ section: \"Is this right for me if...?\" [address a common hesitation]")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When listing any product or service for sale on Etsy, Gumroad, Ko-fi, or similar platforms</div>
+  <pre class="prompt-text">I need to write a product listing for my online shop.
+Product details:
+- Product name: [name]
+- What it is: [plain description]
+- Who it is for: [your target buyer]
+- What problem it solves or need it fills: [the pain point]
+- What is included: [e.g. &quot;a 2-page printable PDF, instant download&quot;]
+- Price: $[amount]
+- Platform: [Etsy / Gumroad / Ko-fi]
+Please write:
+1) A listing title (under 140 characters, clear and searchable)
+2) A product description (150–200 words) focused on what the product does for the buyer, not just what it is
+3) A &quot;What You Get&quot; bullet list (4–6 items)
+4) Five search tags or keywords
+5) One sentence for a FAQ section: &quot;Is this right for me if...?&quot; [address a common hesitation]</pre>
+</div>
+<div class="prompt-card" id="ch11-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">First Sale Launch Message</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I just launched my first product online and want to let people in my network know about it.\nAbout my product:\n- What it is: [description]\n- Who it helps: [target audience]\n- Where to find it: [URL or platform]\n- Price: $[amount]\n- Any launch offer: [e.g. \"first 10 buyers get 50% off\" / \"no special offer, just sharing\"]\nWhere I am sharing this: [e.g. Facebook group for caregivers / family group chat / neighbourhood email list]\nPlease write a short, genuine announcement message (under 120 words) that:\n1) Shares the news warmly without sounding like an advertisement\n2) Explains clearly who the product is for and what it does\n3) Includes the link and price\n4) Ends with an invitation \u2014 not a sales push \u2014 for people to share if they know someone who might benefit")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  <div class="when-to-use">📌 <strong>When to use:</strong> When you are ready to share your new product or service with your network for the first time</div>
+  <pre class="prompt-text">I just launched my first product online and want to let people in my network know about it.
+About my product:
+- What it is: [description]
+- Who it helps: [target audience]
+- Where to find it: [URL or platform]
+- Price: $[amount]
+- Any launch offer: [e.g. &quot;first 10 buyers get 50% off&quot; / &quot;no special offer, just sharing&quot;]
+Where I am sharing this: [e.g. Facebook group for caregivers / family group chat / neighbourhood email list]
+Please write a short, genuine announcement message (under 120 words) that:
+1) Shares the news warmly without sounding like an advertisement
+2) Explains clearly who the product is for and what it does
+3) Includes the link and price
+4) Ends with an invitation — not a sales push — for people to share if they know someone who might benefit</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch12">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 12</span>
+    <h2 class="chapter-title">Your Digital Assistant — Scheduling, Reminders, Routines</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch12-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">I want to build a simple weekly schedule. Here is what I nee…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to build a simple weekly schedule. Here is what I need to fit in:\nFixed commitments (same time each week):\n- [e.g. \"Doctor appointment Tuesdays at 10am\"]\n- [e.g. \"Church on Sunday mornings\"]\n- [e.g. \"Prescription pickup every other Monday\"]\nDaily tasks (things I do every day):\n- [e.g. \"Morning medications at 8am and 8pm\"]\n- [e.g. \"30 minutes of gentle walking\"]\nPersonal priorities I want to protect:\n- [e.g. \"Afternoon rest from 2\u20134pm\"]\n- [e.g. \"Tuesday lunch with my sister\"]\nMy energy is usually highest: [morning / afternoon / evening]\nPlease create a plain-language Monday\u2013Sunday schedule that fits everything in,\nprotects my rest time, and leaves some flexibility. Format it simply \u2014 I want\nto be able to print it and tape it somewhere visible.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I want to build a simple weekly schedule. Here is what I need to fit in:
+Fixed commitments (same time each week):
+- [e.g. &quot;Doctor appointment Tuesdays at 10am&quot;]
+- [e.g. &quot;Church on Sunday mornings&quot;]
+- [e.g. &quot;Prescription pickup every other Monday&quot;]
+Daily tasks (things I do every day):
+- [e.g. &quot;Morning medications at 8am and 8pm&quot;]
+- [e.g. &quot;30 minutes of gentle walking&quot;]
+Personal priorities I want to protect:
+- [e.g. &quot;Afternoon rest from 2–4pm&quot;]
+- [e.g. &quot;Tuesday lunch with my sister&quot;]
+My energy is usually highest: [morning / afternoon / evening]
+Please create a plain-language Monday–Sunday schedule that fits everything in,
+protects my rest time, and leaves some flexibility. Format it simply — I want
+to be able to print it and tape it somewhere visible.
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch12-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Please help me create a simple medication reminder schedule.</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Please help me create a simple medication reminder schedule.\nMy medications (fill in your own):\n- [Medication name]: [dose] at [time(s)]\n- [Medication name]: [dose] at [time(s)]\n- [Medication name]: [dose] at [time(s)]\nOther daily tasks I need to remember:\n- [e.g. \"Blood pressure check every morning\"]\n- [e.g. \"Water intake \u2014 6 glasses by end of day\"]\n- [e.g. \"Eye drops twice daily\"]\nPlease create a simple morning, midday, and evening checklist I can print.\nUse plain language. No medical jargon. Make it easy to hand to a caregiver\nif needed.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">Please help me create a simple medication reminder schedule.
+My medications (fill in your own):
+- [Medication name]: [dose] at [time(s)]
+- [Medication name]: [dose] at [time(s)]
+- [Medication name]: [dose] at [time(s)]
+Other daily tasks I need to remember:
+- [e.g. &quot;Blood pressure check every morning&quot;]
+- [e.g. &quot;Water intake — 6 glasses by end of day&quot;]
+- [e.g. &quot;Eye drops twice daily&quot;]
+Please create a simple morning, midday, and evening checklist I can print.
+Use plain language. No medical jargon. Make it easy to hand to a caregiver
+if needed.
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch12-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">Help me build a simple morning routine.</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Help me build a simple morning routine.\nAbout me:\n- I usually wake up around: [time]\n- My physical limitations or needs: [e.g. \"I move slowly in the morning due to arthritis\"]\n- Medications I take in the morning: [list]\n- How long I have before my first commitment: [e.g. \"about 90 minutes\"]\n- What I want my morning to include: [e.g. \"coffee, news, light stretching, a moment of quiet\"]\nPlease write a step-by-step morning routine (15\u201320 steps maximum) that:\n1) Flows naturally from waking to being ready for the day\n2) Builds in time for medications and any physical needs\n3) Includes at least one enjoyable thing (not just tasks)\n4) Takes no longer than [X] minutes total\nWrite it in plain English as a numbered list I can put on my nightstand.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">Help me build a simple morning routine.
+About me:
+- I usually wake up around: [time]
+- My physical limitations or needs: [e.g. &quot;I move slowly in the morning due to arthritis&quot;]
+- Medications I take in the morning: [list]
+- How long I have before my first commitment: [e.g. &quot;about 90 minutes&quot;]
+- What I want my morning to include: [e.g. &quot;coffee, news, light stretching, a moment of quiet&quot;]
+Please write a step-by-step morning routine (15–20 steps maximum) that:
+1) Flows naturally from waking to being ready for the day
+2) Builds in time for medications and any physical needs
+3) Includes at least one enjoyable thing (not just tasks)
+4) Takes no longer than [X] minutes total
+Write it in plain English as a numbered list I can put on my nightstand.
+───────────────────────────────────────────────────────</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch13">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 13</span>
+    <h2 class="chapter-title">Medical Appointment Prep — Never Walk In Unprepared</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch13-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">I have a doctor&#x27;s appointment coming up and I want to arrive…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I have a doctor's appointment coming up and I want to arrive prepared.\nMy main concern(s):\n- [Describe your primary symptom or health issue in your own words]\n- [Add any secondary concerns]\nAdditional details:\n- When it started: [e.g. \"about three months ago\"]\n- How often it happens: [e.g. \"almost every morning\"]\n- What makes it better: [e.g. \"resting, lying down\"]\n- What makes it worse: [e.g. \"standing up quickly, after meals\"]\n- How it affects my daily life: [e.g. \"I have stopped walking in the evenings because of it\"]\n- What I have already tried: [e.g. \"over-the-counter pain relief \u2014 helped a little\"]\nMy current medications: [list them]\nMy other health conditions: [list them]\nPlease write a clear, one-page symptom summary I can hand to my doctor.\nUse plain language. Organise it with short sections. Include a one-sentence\n\"Main concern\" at the top.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I have a doctor&#x27;s appointment coming up and I want to arrive prepared.
+My main concern(s):
+- [Describe your primary symptom or health issue in your own words]
+- [Add any secondary concerns]
+Additional details:
+- When it started: [e.g. &quot;about three months ago&quot;]
+- How often it happens: [e.g. &quot;almost every morning&quot;]
+- What makes it better: [e.g. &quot;resting, lying down&quot;]
+- What makes it worse: [e.g. &quot;standing up quickly, after meals&quot;]
+- How it affects my daily life: [e.g. &quot;I have stopped walking in the evenings because of it&quot;]
+- What I have already tried: [e.g. &quot;over-the-counter pain relief — helped a little&quot;]
+My current medications: [list them]
+My other health conditions: [list them]
+Please write a clear, one-page symptom summary I can hand to my doctor.
+Use plain language. Organise it with short sections. Include a one-sentence
+&quot;Main concern&quot; at the top.
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch13-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">I have an appointment with [type of doctor — e.g. &quot;my GP / c…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I have an appointment with [type of doctor \u2014 e.g. \"my GP / cardiologist / specialist\"]\ncoming up. The main topic is: [e.g. \"follow-up on high blood pressure / new knee pain /\nreviewing my medications\"].\nMy current medications: [list]\nMy health conditions: [list]\nWhat I already know or have been told: [e.g. \"my last blood test showed low vitamin D\"]\nWhat I am worried about but haven't mentioned yet: [e.g. \"I have been feeling short of breath\nclimbing stairs\"]\nPlease give me a list of 8\u201310 specific questions I should ask at this appointment.\nOrganise them: most important first. Include at least one question about side effects,\none about what to do if things don't improve, and one about what I should watch for\nat home.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I have an appointment with [type of doctor — e.g. &quot;my GP / cardiologist / specialist&quot;]
+coming up. The main topic is: [e.g. &quot;follow-up on high blood pressure / new knee pain /
+reviewing my medications&quot;].
+My current medications: [list]
+My health conditions: [list]
+What I already know or have been told: [e.g. &quot;my last blood test showed low vitamin D&quot;]
+What I am worried about but haven&#x27;t mentioned yet: [e.g. &quot;I have been feeling short of breath
+climbing stairs&quot;]
+Please give me a list of 8–10 specific questions I should ask at this appointment.
+Organise them: most important first. Include at least one question about side effects,
+one about what to do if things don&#x27;t improve, and one about what I should watch for
+at home.
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch13-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">I just had a medical appointment and want to make sure I fol…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I just had a medical appointment and want to make sure I follow through on everything.\nWhat happened at the appointment:\n- Main findings or diagnosis: [e.g. \"doctor thinks it may be low blood pressure on standing\"]\n- New medications or changes: [e.g. \"reduced lisinopril dose from 10mg to 5mg\"]\n- Tests ordered: [e.g. \"24-hour blood pressure monitor\"]\n- Referrals made: [e.g. \"referred to cardiologist\"]\n- Instructions I was given: [e.g. \"stand up slowly, drink more water, come back in 6 weeks\"]\nThings I want to remember to ask next time: [list anything you forgot to mention]\nPlease write:\n1) A plain-language summary of what was decided at this appointment\n2) A checklist of actions I need to take and when\n3) A reminder of what symptoms or changes should prompt me to call the office sooner\nFormat it simply \u2014 I want to stick this on my fridge.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I just had a medical appointment and want to make sure I follow through on everything.
+What happened at the appointment:
+- Main findings or diagnosis: [e.g. &quot;doctor thinks it may be low blood pressure on standing&quot;]
+- New medications or changes: [e.g. &quot;reduced lisinopril dose from 10mg to 5mg&quot;]
+- Tests ordered: [e.g. &quot;24-hour blood pressure monitor&quot;]
+- Referrals made: [e.g. &quot;referred to cardiologist&quot;]
+- Instructions I was given: [e.g. &quot;stand up slowly, drink more water, come back in 6 weeks&quot;]
+Things I want to remember to ask next time: [list anything you forgot to mention]
+Please write:
+1) A plain-language summary of what was decided at this appointment
+2) A checklist of actions I need to take and when
+3) A reminder of what symptoms or changes should prompt me to call the office sooner
+Format it simply — I want to stick this on my fridge.
+───────────────────────────────────────────────────────</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch14">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 14</span>
+    <h2 class="chapter-title">Caregiver&#x27;s Companion — Tools That Lighten the Load</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch14-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">I need to write a care summary for the person I care for.</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a care summary for the person I care for.\nAbout the person I care for:\n- Name: [first name]\n- Age: [age]\n- Primary health conditions: [list]\n- Cognitive state: [e.g. \"fully alert / early-stage dementia / significant memory loss\"]\nMedications (list each):\n- [Medication name]: [dose], [frequency], [what it is for]\nDaily routine:\n- Morning: [e.g. \"wakes at 7am, needs help getting to bathroom, medications with breakfast\"]\n- Midday: [e.g. \"lunch at noon, 1-hour nap, prefers TV in the afternoon\"]\n- Evening: [e.g. \"dinner at 5:30, medications, in bed by 9pm\"]\nImportant preferences and notes:\n- [e.g. \"becomes anxious if routine is disrupted \u2014 do not change meal times\"]\n- [e.g. \"responds well to being called by her nickname, not her full name\"]\n- [e.g. \"do not argue if she insists on something \u2014 redirect gently\"]\nKey contacts:\n- Doctor: [name, phone]\n- Pharmacy: [name, phone]\n- Emergency contact (other than me): [name, phone]\nPlease write a clear, well-organised care summary (2 pages maximum) that a\nsubstitute caregiver could read quickly and follow confidently.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I need to write a care summary for the person I care for.
+About the person I care for:
+- Name: [first name]
+- Age: [age]
+- Primary health conditions: [list]
+- Cognitive state: [e.g. &quot;fully alert / early-stage dementia / significant memory loss&quot;]
+Medications (list each):
+- [Medication name]: [dose], [frequency], [what it is for]
+Daily routine:
+- Morning: [e.g. &quot;wakes at 7am, needs help getting to bathroom, medications with breakfast&quot;]
+- Midday: [e.g. &quot;lunch at noon, 1-hour nap, prefers TV in the afternoon&quot;]
+- Evening: [e.g. &quot;dinner at 5:30, medications, in bed by 9pm&quot;]
+Important preferences and notes:
+- [e.g. &quot;becomes anxious if routine is disrupted — do not change meal times&quot;]
+- [e.g. &quot;responds well to being called by her nickname, not her full name&quot;]
+- [e.g. &quot;do not argue if she insists on something — redirect gently&quot;]
+Key contacts:
+- Doctor: [name, phone]
+- Pharmacy: [name, phone]
+- Emergency contact (other than me): [name, phone]
+Please write a clear, well-organised care summary (2 pages maximum) that a
+substitute caregiver could read quickly and follow confidently.
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch14-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">I need to write an update message to send to family members …</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write an update message to send to family members about the person I care for.\nCurrent situation:\n- What happened recently: [e.g. \"Mom had a fall last week / Dad's dementia has progressed /\nthere was a hospital stay\"]\n- Current status: [e.g. \"she is home now and stable / he has moved to a memory care facility\"]\n- What the care plan is going forward: [e.g. \"increased home care visits / new medications\"]\n- What family members may be worried about: [e.g. \"whether she is safe at home /\nwhether this is the beginning of a faster decline\"]\nTone I want: [e.g. \"honest but reassuring / factual and brief / warm and personal\"]\nWho will receive this: [e.g. \"my three siblings / extended family group chat\"]\nPlease write a family update message (under 300 words) that:\n1) Clearly explains what has happened and what the current situation is\n2) Describes what care is in place going forward\n3) Tells family members what they can do to help (or if there is nothing to do)\n4) Sets a clear expectation about when the next update will come\n5) Ends with something honest and human \u2014 not falsely optimistic, not alarming\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I need to write an update message to send to family members about the person I care for.
+Current situation:
+- What happened recently: [e.g. &quot;Mom had a fall last week / Dad&#x27;s dementia has progressed /
+there was a hospital stay&quot;]
+- Current status: [e.g. &quot;she is home now and stable / he has moved to a memory care facility&quot;]
+- What the care plan is going forward: [e.g. &quot;increased home care visits / new medications&quot;]
+- What family members may be worried about: [e.g. &quot;whether she is safe at home /
+whether this is the beginning of a faster decline&quot;]
+Tone I want: [e.g. &quot;honest but reassuring / factual and brief / warm and personal&quot;]
+Who will receive this: [e.g. &quot;my three siblings / extended family group chat&quot;]
+Please write a family update message (under 300 words) that:
+1) Clearly explains what has happened and what the current situation is
+2) Describes what care is in place going forward
+3) Tells family members what they can do to help (or if there is nothing to do)
+4) Sets a clear expectation about when the next update will come
+5) Ends with something honest and human — not falsely optimistic, not alarming
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch14-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">I need to have a difficult conversation and I want to prepar…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to have a difficult conversation and I want to prepare what to say.\nWho I need to talk to: [e.g. \"my mother's doctor / my brother / my father himself\"]\nWhat the conversation is about: [e.g. \"I don't think Dad is safe living alone anymore\" /\n\"I need to discuss stopping a treatment\" / \"I need my sibling to take on more responsibility\"]\nWhat I am worried they will say: [e.g. \"they will dismiss my concerns / they will get defensive\"]\nWhat outcome I am hoping for: [e.g. \"agreement to get a home assessment / shared care schedule\"]\nMy relationship with this person: [e.g. \"close but sometimes tense / professional / strained\"]\nPlease help me:\n1) Open the conversation in a way that is calm and non-confrontational\n2) State my concern clearly without sounding accusatory\n3) Ask for what I need specifically\n4) Prepare for two or three likely responses and how to handle them\nWrite this as a script I can practise before the conversation.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I need to have a difficult conversation and I want to prepare what to say.
+Who I need to talk to: [e.g. &quot;my mother&#x27;s doctor / my brother / my father himself&quot;]
+What the conversation is about: [e.g. &quot;I don&#x27;t think Dad is safe living alone anymore&quot; /
+&quot;I need to discuss stopping a treatment&quot; / &quot;I need my sibling to take on more responsibility&quot;]
+What I am worried they will say: [e.g. &quot;they will dismiss my concerns / they will get defensive&quot;]
+What outcome I am hoping for: [e.g. &quot;agreement to get a home assessment / shared care schedule&quot;]
+My relationship with this person: [e.g. &quot;close but sometimes tense / professional / strained&quot;]
+Please help me:
+1) Open the conversation in a way that is calm and non-confrontational
+2) State my concern clearly without sounding accusatory
+3) Ask for what I need specifically
+4) Prepare for two or three likely responses and how to handle them
+Write this as a script I can practise before the conversation.
+───────────────────────────────────────────────────────</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch15">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 15</span>
+    <h2 class="chapter-title">Smart Home on a Budget — Voice, Automation, Independence</h2>
+    <span class="prompt-count">3 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch15-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">I want to find out what accessibility features are available…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to find out what accessibility features are available on my device and how to turn them on.\nMy device: [e.g. \"iPhone 14 / Samsung Android phone / iPad / Windows laptop / Mac\"]\nMy operating system (if known): [e.g. \"iOS 17 / Windows 11 / macOS Sonoma\"]\nMy needs (check what applies to you):\n- I have difficulty reading small text: [yes/no]\n- I have difficulty using a touchscreen or keyboard: [yes/no]\n- I have hearing loss and need captions or louder audio: [yes/no]\n- I have low vision and need screen reader or magnification: [yes/no]\n- I prefer to control my device by voice: [yes/no]\n- Other: [describe]\nPlease tell me:\n1) Which accessibility features on my device are most relevant to my needs\n2) Exactly where to find each one (step by step, in plain language)\n3) Which ones I should turn on right now\n4) Any free apps worth adding to complement the built-in features\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I want to find out what accessibility features are available on my device and how to turn them on.
+My device: [e.g. &quot;iPhone 14 / Samsung Android phone / iPad / Windows laptop / Mac&quot;]
+My operating system (if known): [e.g. &quot;iOS 17 / Windows 11 / macOS Sonoma&quot;]
+My needs (check what applies to you):
+- I have difficulty reading small text: [yes/no]
+- I have difficulty using a touchscreen or keyboard: [yes/no]
+- I have hearing loss and need captions or louder audio: [yes/no]
+- I have low vision and need screen reader or magnification: [yes/no]
+- I prefer to control my device by voice: [yes/no]
+- Other: [describe]
+Please tell me:
+1) Which accessibility features on my device are most relevant to my needs
+2) Exactly where to find each one (step by step, in plain language)
+3) Which ones I should turn on right now
+4) Any free apps worth adding to complement the built-in features
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch15-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">I want to make my home more accessible and easier to manage …</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to make my home more accessible and easier to manage using smart home technology.\nI have a limited budget and I want to start with the most impactful changes first.\nAbout my situation:\n- My home type: [e.g. \"apartment / house / I rent\"]\n- My budget: [e.g. \"under $50 / under $100 / flexible\"]\n- My main challenges: [e.g. \"I have arthritis and struggle with light switches /\nI move slowly and want to reduce unnecessary trips across the room /\nI am hard of hearing and miss doorbells and alarms\"]\n- Devices I already have: [e.g. \"iPhone / Amazon Echo Dot / nothing smart yet\"]\n- My tech comfort level: [beginner / some experience / comfortable]\nPlease recommend:\n1) The two or three specific devices I should buy first, with approximate prices\n2) What each one will do for me in practical, day-to-day terms\n3) How to set each one up (plain-language steps)\n4) What to add next once I am comfortable with the basics\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I want to make my home more accessible and easier to manage using smart home technology.
+I have a limited budget and I want to start with the most impactful changes first.
+About my situation:
+- My home type: [e.g. &quot;apartment / house / I rent&quot;]
+- My budget: [e.g. &quot;under $50 / under $100 / flexible&quot;]
+- My main challenges: [e.g. &quot;I have arthritis and struggle with light switches /
+I move slowly and want to reduce unnecessary trips across the room /
+I am hard of hearing and miss doorbells and alarms&quot;]
+- Devices I already have: [e.g. &quot;iPhone / Amazon Echo Dot / nothing smart yet&quot;]
+- My tech comfort level: [beginner / some experience / comfortable]
+Please recommend:
+1) The two or three specific devices I should buy first, with approximate prices
+2) What each one will do for me in practical, day-to-day terms
+3) How to set each one up (plain-language steps)
+4) What to add next once I am comfortable with the basics
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch15-p3">
+  <div class="card-header">
+    <h3 class="prompt-title">I just set up a voice assistant and I want a simple cheat sh…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I just set up a voice assistant and I want a simple cheat sheet of the most useful commands.\nMy voice assistant: [Amazon Alexa / Google Assistant / Siri / other]\nMy devices (if any): [e.g. \"smart plugs on two lamps / smart bulbs in bedroom / just the speaker\"]\nThe things I most want to do by voice:\n- [e.g. \"set medication reminders\"]\n- [e.g. \"call my daughter\"]\n- [e.g. \"turn the bedroom light on and off\"]\n- [e.g. \"play my favourite music\"]\n- [e.g. \"hear the weather forecast each morning\"]\n- [e.g. \"set a timer when I am cooking\"]\nPlease write a simple, large-print-friendly cheat sheet of the exact phrases I should say\nfor each task. Use my specific assistant's command style. Keep it to one page. I want to\nprint this and keep it next to the device.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I just set up a voice assistant and I want a simple cheat sheet of the most useful commands.
+My voice assistant: [Amazon Alexa / Google Assistant / Siri / other]
+My devices (if any): [e.g. &quot;smart plugs on two lamps / smart bulbs in bedroom / just the speaker&quot;]
+The things I most want to do by voice:
+- [e.g. &quot;set medication reminders&quot;]
+- [e.g. &quot;call my daughter&quot;]
+- [e.g. &quot;turn the bedroom light on and off&quot;]
+- [e.g. &quot;play my favourite music&quot;]
+- [e.g. &quot;hear the weather forecast each morning&quot;]
+- [e.g. &quot;set a timer when I am cooking&quot;]
+Please write a simple, large-print-friendly cheat sheet of the exact phrases I should say
+for each task. Use my specific assistant&#x27;s command style. Keep it to one page. I want to
+print this and keep it next to the device.
+───────────────────────────────────────────────────────</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch16">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 16</span>
+    <h2 class="chapter-title">Safety First — Privacy, Scams &amp; What AI Should Never Do</h2>
+    <span class="prompt-count">2 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch16-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">I received something that I want you to help me assess. Plea…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I received something that I want you to help me assess. Please tell me if this looks\nlike a scam or if it seems legitimate.\nWhat I received: [email / phone call / text message / online message / popup on my screen]\nWho it claimed to be from: [e.g. \"Medicare\" / \"my bank\" / \"a grandchild\" / \"tech support\"]\nWhat it said or asked: [describe in your own words what the message contained]\nWhat it asked me to do: [e.g. \"call a number\" / \"click a link\" / \"provide my Medicare number\" /\n\"send gift cards\" / \"allow remote access to my computer\"]\nHow urgent it felt: [e.g. \"very urgent, said I had 24 hours\" / \"friendly and not rushed\"]\nPlease:\n1) Tell me honestly whether this has the hallmarks of a scam\n2) List the specific red flags you see (or reassure me if it looks legitimate)\n3) Tell me exactly what I should do next\n4) Tell me what I should NOT do\nDo not soften the answer \u2014 I would rather know clearly.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I received something that I want you to help me assess. Please tell me if this looks
+like a scam or if it seems legitimate.
+What I received: [email / phone call / text message / online message / popup on my screen]
+Who it claimed to be from: [e.g. &quot;Medicare&quot; / &quot;my bank&quot; / &quot;a grandchild&quot; / &quot;tech support&quot;]
+What it said or asked: [describe in your own words what the message contained]
+What it asked me to do: [e.g. &quot;call a number&quot; / &quot;click a link&quot; / &quot;provide my Medicare number&quot; /
+&quot;send gift cards&quot; / &quot;allow remote access to my computer&quot;]
+How urgent it felt: [e.g. &quot;very urgent, said I had 24 hours&quot; / &quot;friendly and not rushed&quot;]
+Please:
+1) Tell me honestly whether this has the hallmarks of a scam
+2) List the specific red flags you see (or reassure me if it looks legitimate)
+3) Tell me exactly what I should do next
+4) Tell me what I should NOT do
+Do not soften the answer — I would rather know clearly.
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch16-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">I want to review and improve my privacy settings.</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to review and improve my privacy settings.\nDevice or platform: [e.g. \"iPhone / Facebook / Gmail / Windows laptop / Amazon Alexa\"]\nMy main concern: [e.g. \"I don't want apps tracking my location\" / \"I want to limit what\nFacebook shares\" / \"I want to know what Google knows about me\" / \"I want to stop targeted ads\"]\nMy tech comfort level: [beginner / some experience / comfortable]\nPlease give me:\n1) The three most important privacy settings to change on this device or platform\n2) Step-by-step instructions to find and change each one\n3) What difference each change will make in plain language\n4) One thing I should check regularly going forward\nKeep the instructions simple \u2014 assume I will follow them one step at a time.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I want to review and improve my privacy settings.
+Device or platform: [e.g. &quot;iPhone / Facebook / Gmail / Windows laptop / Amazon Alexa&quot;]
+My main concern: [e.g. &quot;I don&#x27;t want apps tracking my location&quot; / &quot;I want to limit what
+Facebook shares&quot; / &quot;I want to know what Google knows about me&quot; / &quot;I want to stop targeted ads&quot;]
+My tech comfort level: [beginner / some experience / comfortable]
+Please give me:
+1) The three most important privacy settings to change on this device or platform
+2) Step-by-step instructions to find and change each one
+3) What difference each change will make in plain language
+4) One thing I should check regularly going forward
+Keep the instructions simple — assume I will follow them one step at a time.
+───────────────────────────────────────────────────────</pre>
+</div>
+  </div>
+</section>
+<section class="chapter-section" id="ch18">
+  <div class="chapter-header">
+    <span class="chapter-label">Chapter 18</span>
+    <h2 class="chapter-title">Pass It Forward — Teaching Someone Else</h2>
+    <span class="prompt-count">2 prompts</span>
+  </div>
+  <div class="cards-grid">
+    
+<div class="prompt-card" id="ch18-p1">
+  <div class="card-header">
+    <h3 class="prompt-title">I want to introduce someone to AI for the first time. Help m…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "I want to introduce someone to AI for the first time. Help me plan a simple first session.\nAbout the person I want to help:\n- Their age (approximately): [age]\n- Their comfort with technology: [very low / some / moderate]\n- Their main concern or hesitation (if any): [e.g. \"thinks it's too complicated\" /\n\"worried about privacy\" / \"doesn't see the point\"]\n- Their interests or hobbies: [e.g. \"gardening / genealogy / cooking / grandchildren\"]\n- One practical thing that might help them: [e.g. \"writing letters / finding discounts /\nmedical appointment prep\"]\nPlease give me:\n1) A suggested first question to ask the AI that relates to their interests\n2) Two follow-up questions to keep the conversation going\n3) One practical task we can do together that will feel useful, not just impressive\n4) How to explain what AI is in two sentences \u2014 without jargon\n5) What to say if they say \"I'll never be able to do this on my own\"\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">I want to introduce someone to AI for the first time. Help me plan a simple first session.
+About the person I want to help:
+- Their age (approximately): [age]
+- Their comfort with technology: [very low / some / moderate]
+- Their main concern or hesitation (if any): [e.g. &quot;thinks it&#x27;s too complicated&quot; /
+&quot;worried about privacy&quot; / &quot;doesn&#x27;t see the point&quot;]
+- Their interests or hobbies: [e.g. &quot;gardening / genealogy / cooking / grandchildren&quot;]
+- One practical thing that might help them: [e.g. &quot;writing letters / finding discounts /
+medical appointment prep&quot;]
+Please give me:
+1) A suggested first question to ask the AI that relates to their interests
+2) Two follow-up questions to keep the conversation going
+3) One practical task we can do together that will feel useful, not just impressive
+4) How to explain what AI is in two sentences — without jargon
+5) What to say if they say &quot;I&#x27;ll never be able to do this on my own&quot;
+───────────────────────────────────────────────────────</pre>
+</div>
+<div class="prompt-card" id="ch18-p2">
+  <div class="card-header">
+    <h3 class="prompt-title">Someone asked me this question about AI and I want to explai…</h3>
+    <button class="copy-btn" onclick="copyPrompt(this, "Someone asked me this question about AI and I want to explain it well:\nThe question: [e.g. \"How does it know so much?\" / \"Is it reading my mind?\" /\n\"Who is actually answering \u2014 is it a real person?\" / \"Can it lie to me?\"]\nThe person asking: [e.g. \"my 83-year-old mother / my neighbour / a friend from church\"]\nTheir tech background: [none / some / moderate]\nPlease give me a plain-language explanation I can say out loud \u2014 no jargon, no technical\nterms, under 60 words. Then give me one analogy I could use to make it even clearer.\nIf the question has a \"yes and no\" answer, give me both sides honestly.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy
+    </button>
+  </div>
+  
+  <pre class="prompt-text">Someone asked me this question about AI and I want to explain it well:
+The question: [e.g. &quot;How does it know so much?&quot; / &quot;Is it reading my mind?&quot; /
+&quot;Who is actually answering — is it a real person?&quot; / &quot;Can it lie to me?&quot;]
+The person asking: [e.g. &quot;my 83-year-old mother / my neighbour / a friend from church&quot;]
+Their tech background: [none / some / moderate]
+Please give me a plain-language explanation I can say out loud — no jargon, no technical
+terms, under 60 words. Then give me one analogy I could use to make it even clearer.
+If the question has a &quot;yes and no&quot; answer, give me both sides honestly.
+───────────────────────────────────────────────────────</pre>
+</div>
+  </div>
+</section>
+  <div class="no-results" id="noResults">
+    <p style="font-size:1.5rem; margin-bottom:0.5rem;">🔍</p>
+    <p>No prompts found. Try a different search term.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>From <em>AI for Living Well with Disability</em> by Kailash Iyer &nbsp;·&nbsp; <a href="https://theaccessibleai.com">theaccessibleai.com</a></p>
+  <p style="margin-top:0.4rem;">Paste any prompt into <a href="https://claude.ai" target="_blank">Claude</a>, <a href="https://chat.openai.com" target="_blank">ChatGPT</a>, or any AI tool — then fill in the [bracketed] details.</p>
+</footer>
+
+<script>
+function copyPrompt(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerHTML;
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 18 4 13"></polyline></svg> Copied!`;
+    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2000);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.classList.add('copied');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path></svg> Copy`; }, 2000);
+  });
+}
+
+function filterPrompts() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.prompt-card');
+  const sections = document.querySelectorAll('.chapter-section');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const match = !q || text.includes(q);
+    card.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+
+  sections.forEach(sec => {
+    const anyVisible = [...sec.querySelectorAll('.prompt-card')].some(c => !c.classList.contains('hidden'));
+    sec.style.display = anyVisible ? '' : 'none';
+  });
+
+  document.getElementById('searchCount').textContent = q ? `${visible} of 61 prompts` : `61 prompts`;
+  document.getElementById('noResults').classList.toggle('visible', visible === 0);
+}
+</script>
+</body>
+</html>
