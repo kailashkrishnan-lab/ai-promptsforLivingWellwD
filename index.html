@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All Prompts — AI for Living Well with Disability</title>
-  <meta name="description" content="61 ready-to-use AI prompts from 'AI for Living Well with Disability' by Kailash Iyer. Copy and paste into any AI tool."/>
+  <title>All Prompts — AI for Living Well with Disabilities</title>
+  <meta name="description" content="Expanded copy-paste prompts from AI for Living Well with Disabilities by Kailash Iyer. Organized by starting prompts and chapter."/>
   <style>
     :root {
       --blue: #2E75B6;
@@ -244,6 +244,16 @@
     }
     .no-results.visible { display: block; }
 
+    .section-intro {
+      background: var(--blue-light);
+      border-left: 4px solid var(--blue);
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
     @media (max-width: 600px) {
       .site-header { padding: 1.75rem 1rem 1.5rem; }
       main { padding: 1rem 0.9rem 3rem; }
@@ -255,21 +265,22 @@
 
 <header class="site-header">
   <p class="eyebrow">Companion Resource</p>
-  <h1>AI for Living Well with Disability</h1>
-  <p class="subtitle">All 61 copy-paste prompts from the book, organised by chapter</p>
+  <h1>AI for Living Well with Disabilities</h1>
+  <p class="subtitle">Expanded copy-paste prompts from the book, organized by starting prompts and chapter</p>
   <div class="badge-row">
-    <span class="badge">📚 18 Chapters</span>
-    <span class="badge">📋 61 Prompts</span>
+    <span class="badge">📚 Book Companion</span>
+    <span class="badge">📋 Starting + Chapter Prompts</span>
     <span class="badge">✂️ Copy with one click</span>
   </div>
 </header>
 
 <div class="search-bar">
   <input type="text" id="searchInput" placeholder="Search prompts… e.g. 'medical bill', 'medication reminder'" aria-label="Search prompts" oninput="filterPrompts()"/>
-  <span class="search-count" id="searchCount">61 prompts</span>
+  <span class="search-count" id="searchCount">Starting + chapter prompts</span>
 </div>
 
 <nav class="chapter-nav" aria-label="Jump to chapter">
+  <a href="#start-here">Start Here</a>
   <a href="#ch1">Ch 1</a>
 <a href="#ch2">Ch 2</a>
 <a href="#ch3">Ch 3</a>
@@ -292,6 +303,457 @@
 
 <main id="mainContent">
   
+<section class="chapter-section" id="start-here">
+  <div class="chapter-header">
+    <span class="chapter-label">Start Here</span>
+    <h2 class="chapter-title">5 Prompts That Can Help Today</h2>
+    <span class="prompt-count">5 prompts</span>
+  </div>
+
+  <p class="section-intro">
+    These are expanded versions of the quick-start prompts from the book. They are longer on purpose: each one includes clearer instructions, safer boundaries, and a structured output format.
+  </p>
+
+  <div class="cards-grid">
+    <div class="prompt-card" id="start-here-p1">
+      <div class="card-header">
+        <h3 class="prompt-title">Explain This Confusing Letter</h3>
+        <button class="copy-btn" onclick="copyPrompt(this, `You are helping me understand a confusing letter or notice. Your job is to explain it clearly, calmly, and in plain English.
+
+Important boundaries:
+- Do not give legal, medical, tax, financial, insurance, or benefits advice.
+- Do not assume the letter is accurate.
+- Do not tell me what decision to make.
+- Help me understand what the letter appears to say, what I should verify, and what questions I may need to ask.
+- If this appears to be from a government agency, insurer, medical provider, employer, bank, landlord, or benefits office, remind me to verify using the official website, phone number, account portal, or written contact information.
+
+My situation:
+- Who sent the letter: [who sent it]
+- Date on the letter: [date]
+- Deadline or due date, if shown: [deadline]
+- My concern: [what worries or confuses me]
+- My goal: [understand it / respond / gather documents / prepare questions / decide who to call]
+
+Here is the confusing part of the letter, with private details removed:
+[paste text]
+
+Please give me the answer in this format:
+
+1. Plain-English summary
+Explain what this letter appears to be about in 5 short bullet points or fewer.
+
+2. What it may be asking me to do
+List any actions, deadlines, documents, payments, appointments, forms, or responses mentioned.
+
+3. What I should verify
+List anything I should confirm before acting.
+
+4. Questions I may need to ask
+Give me 5 clear questions I can ask the sender or official source.
+
+5. Possible next steps
+Give me a calm, practical checklist. Do not tell me what decision to make.
+
+6. Draft response, if appropriate
+If a written response seems useful, draft a short polite message I can personalize.`)" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="when-to-use">📌 <strong>When to use:</strong> When you receive a confusing letter, notice, denial, form, or official message.</div>
+      <pre class="prompt-text">You are helping me understand a confusing letter or notice. Your job is to explain it clearly, calmly, and in plain English.
+
+Important boundaries:
+- Do not give legal, medical, tax, financial, insurance, or benefits advice.
+- Do not assume the letter is accurate.
+- Do not tell me what decision to make.
+- Help me understand what the letter appears to say, what I should verify, and what questions I may need to ask.
+- If this appears to be from a government agency, insurer, medical provider, employer, bank, landlord, or benefits office, remind me to verify using the official website, phone number, account portal, or written contact information.
+
+My situation:
+- Who sent the letter: [who sent it]
+- Date on the letter: [date]
+- Deadline or due date, if shown: [deadline]
+- My concern: [what worries or confuses me]
+- My goal: [understand it / respond / gather documents / prepare questions / decide who to call]
+
+Here is the confusing part of the letter, with private details removed:
+[paste text]
+
+Please give me the answer in this format:
+
+1. Plain-English summary
+Explain what this letter appears to be about in 5 short bullet points or fewer.
+
+2. What it may be asking me to do
+List any actions, deadlines, documents, payments, appointments, forms, or responses mentioned.
+
+3. What I should verify
+List anything I should confirm before acting.
+
+4. Questions I may need to ask
+Give me 5 clear questions I can ask the sender or official source.
+
+5. Possible next steps
+Give me a calm, practical checklist. Do not tell me what decision to make.
+
+6. Draft response, if appropriate
+If a written response seems useful, draft a short polite message I can personalize.</pre>
+    </div>
+
+    <div class="prompt-card" id="start-here-p2">
+      <div class="card-header">
+        <h3 class="prompt-title">Understand This Bill</h3>
+        <button class="copy-btn" onclick="copyPrompt(this, `You are helping me understand a bill before I decide what to do. Your job is to explain the bill, identify unclear charges, and help me prepare calm questions.
+
+Important boundaries:
+- Do not give legal, financial, medical, insurance, or tax advice.
+- Do not promise savings, corrections, approvals, refunds, or payment plans.
+- Do not tell me what to pay or not pay.
+- Help me understand the bill and prepare questions to verify with the company, provider, insurer, agency, or official source.
+- If this is a medical bill or Explanation of Benefits, remind me that an EOB is often a summary and that I should verify what I actually owe with the provider or insurer.
+
+My situation:
+- Type of bill: [internet / cable / utility / medical / insurance / credit card / subscription / other]
+- Sender: [company/provider]
+- Amount due: [$amount]
+- Due date, if any: [date]
+- What changed or confused me: [brief explanation]
+- My situation: [fixed income / disability / caregiving / recent change / hardship / other]
+- What I want help with: [understanding charges / asking for itemized bill / asking about assistance / asking about payment plan / checking for errors]
+
+Here is the bill text or summary, with private details removed:
+[paste text]
+
+Please respond in this format:
+
+1. Plain-English explanation
+Explain what this bill appears to be for.
+
+2. Charge breakdown
+List each charge or line item I provided and explain what it may mean.
+
+3. What looks unclear
+Identify anything that may need clarification, such as new fees, duplicate charges, unexplained changes, late fees, estimated usage, insurance adjustments, or missing details.
+
+4. Questions to ask
+Give me a short list of questions I can ask before acting.
+
+5. Documents or information to gather
+Tell me what I should have ready before contacting the company or provider.
+
+6. Draft message
+Write a polite message asking for a clear explanation, itemized bill, correction review, assistance option, lower-cost plan, or payment plan if appropriate.
+
+7. Verification reminder
+Tell me what I should verify directly with the official source.`)" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="when-to-use">📌 <strong>When to use:</strong> When you need to understand a bill before paying, questioning, or asking for help.</div>
+      <pre class="prompt-text">You are helping me understand a bill before I decide what to do. Your job is to explain the bill, identify unclear charges, and help me prepare calm questions.
+
+Important boundaries:
+- Do not give legal, financial, medical, insurance, or tax advice.
+- Do not promise savings, corrections, approvals, refunds, or payment plans.
+- Do not tell me what to pay or not pay.
+- Help me understand the bill and prepare questions to verify with the company, provider, insurer, agency, or official source.
+- If this is a medical bill or Explanation of Benefits, remind me that an EOB is often a summary and that I should verify what I actually owe with the provider or insurer.
+
+My situation:
+- Type of bill: [internet / cable / utility / medical / insurance / credit card / subscription / other]
+- Sender: [company/provider]
+- Amount due: [$amount]
+- Due date, if any: [date]
+- What changed or confused me: [brief explanation]
+- My situation: [fixed income / disability / caregiving / recent change / hardship / other]
+- What I want help with: [understanding charges / asking for itemized bill / asking about assistance / asking about payment plan / checking for errors]
+
+Here is the bill text or summary, with private details removed:
+[paste text]
+
+Please respond in this format:
+
+1. Plain-English explanation
+Explain what this bill appears to be for.
+
+2. Charge breakdown
+List each charge or line item I provided and explain what it may mean.
+
+3. What looks unclear
+Identify anything that may need clarification, such as new fees, duplicate charges, unexplained changes, late fees, estimated usage, insurance adjustments, or missing details.
+
+4. Questions to ask
+Give me a short list of questions I can ask before acting.
+
+5. Documents or information to gather
+Tell me what I should have ready before contacting the company or provider.
+
+6. Draft message
+Write a polite message asking for a clear explanation, itemized bill, correction review, assistance option, lower-cost plan, or payment plan if appropriate.
+
+7. Verification reminder
+Tell me what I should verify directly with the official source.</pre>
+    </div>
+
+    <div class="prompt-card" id="start-here-p3">
+      <div class="card-header">
+        <h3 class="prompt-title">Prepare Me for My Doctor Appointment</h3>
+        <button class="copy-btn" onclick="copyPrompt(this, `You are helping me prepare for a medical appointment. Your job is to organize my concerns and help me ask better questions.
+
+Important boundaries:
+- Do not diagnose me.
+- Do not interpret test results as medical advice.
+- Do not recommend treatment changes.
+- Do not tell me to start, stop, or change medication.
+- Help me prepare a clear appointment summary and questions for my clinician.
+- If something sounds urgent or potentially serious, advise me to contact a qualified medical professional or emergency services as appropriate.
+
+Appointment details:
+- Appointment topic: [topic]
+- Type of clinician: [primary care / specialist / physical therapist / pain doctor / neurologist / other]
+- Appointment date: [date]
+- Main concern: [main concern]
+- Symptoms or changes: [symptoms, pain, fatigue, mobility changes, mood, sleep, function, etc.]
+- How long this has been happening: [duration]
+- What makes it better or worse: [details]
+- Current medications or treatments, if relevant: [list or say “not included”]
+- My top goal for the appointment: [understand issue / ask about options / review medication / discuss test results / get referral / plan next steps]
+
+Please create:
+
+1. One-page appointment summary
+Make it short, clear, and easy to hand to a doctor.
+
+2. Top 5 questions to ask
+Focus on practical questions I should not forget.
+
+3. Symptoms or details to mention
+List anything that may matter based on what I shared.
+
+4. Things to bring
+List documents, medication list, test results, photos, notes, or previous records I may want to bring.
+
+5. After-visit notes template
+Create a simple template I can fill in after the appointment: what the doctor said, next steps, medication changes to verify, referrals, tests, and follow-up date.
+
+6. Safety reminder
+Remind me to verify medical decisions with my clinician.`)" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="when-to-use">📌 <strong>When to use:</strong> Before a doctor visit, specialist visit, therapy session, or medical follow-up.</div>
+      <pre class="prompt-text">You are helping me prepare for a medical appointment. Your job is to organize my concerns and help me ask better questions.
+
+Important boundaries:
+- Do not diagnose me.
+- Do not interpret test results as medical advice.
+- Do not recommend treatment changes.
+- Do not tell me to start, stop, or change medication.
+- Help me prepare a clear appointment summary and questions for my clinician.
+- If something sounds urgent or potentially serious, advise me to contact a qualified medical professional or emergency services as appropriate.
+
+Appointment details:
+- Appointment topic: [topic]
+- Type of clinician: [primary care / specialist / physical therapist / pain doctor / neurologist / other]
+- Appointment date: [date]
+- Main concern: [main concern]
+- Symptoms or changes: [symptoms, pain, fatigue, mobility changes, mood, sleep, function, etc.]
+- How long this has been happening: [duration]
+- What makes it better or worse: [details]
+- Current medications or treatments, if relevant: [list or say “not included”]
+- My top goal for the appointment: [understand issue / ask about options / review medication / discuss test results / get referral / plan next steps]
+
+Please create:
+
+1. One-page appointment summary
+Make it short, clear, and easy to hand to a doctor.
+
+2. Top 5 questions to ask
+Focus on practical questions I should not forget.
+
+3. Symptoms or details to mention
+List anything that may matter based on what I shared.
+
+4. Things to bring
+List documents, medication list, test results, photos, notes, or previous records I may want to bring.
+
+5. After-visit notes template
+Create a simple template I can fill in after the appointment: what the doctor said, next steps, medication changes to verify, referrals, tests, and follow-up date.
+
+6. Safety reminder
+Remind me to verify medical decisions with my clinician.</pre>
+    </div>
+
+    <div class="prompt-card" id="start-here-p4">
+      <div class="card-header">
+        <h3 class="prompt-title">Organize My Caregiving Notes</h3>
+        <button class="copy-btn" onclick="copyPrompt(this, `You are helping me organize caregiving notes into a simple handoff document. Your job is to make the information clear enough for another family member, friend, aide, nurse, or helper to understand.
+
+Important boundaries:
+- Do not give medical advice.
+- Do not change medication instructions.
+- Do not make assumptions about care needs I did not mention.
+- Help organize the information clearly and flag questions I should verify with a clinician, pharmacist, agency, or family decision-maker.
+
+Care situation:
+- Person being cared for: [relationship/name or initials]
+- Main conditions or needs, if relevant: [brief description]
+- Living situation: [lives alone / lives with me / assisted living / other]
+- Current concerns: [concerns]
+- Medications: [list or say “not included”]
+- Appointments: [appointments]
+- Daily routine: [morning / afternoon / evening / bedtime]
+- Mobility, food, toileting, memory, communication, or safety notes: [details]
+- Emergency contacts or important contacts: [names/roles only; avoid private numbers if not needed]
+- What another helper most needs to know: [details]
+
+Please create:
+
+1. Simple daily handoff note
+Make it clear, short, and practical.
+
+2. Today’s priorities
+List the top things a helper should pay attention to today.
+
+3. Medication reminder section
+Create a place to record medication names/times, but remind me to verify all medication instructions with the official medication list, clinician, or pharmacist.
+
+4. Appointment and follow-up section
+Summarize upcoming appointments and what needs to be prepared.
+
+5. Safety and comfort notes
+Include mobility, fall risk, food, hydration, communication, pain, memory, or emotional support notes if I provided them.
+
+6. Questions to verify
+List anything unclear that should be checked with family, the care recipient, a clinician, pharmacist, or care agency.
+
+7. One-page version
+After the detailed handoff, create a shorter one-page version for quick use.`)" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="when-to-use">📌 <strong>When to use:</strong> When caregiving details need to be organized for another helper.</div>
+      <pre class="prompt-text">You are helping me organize caregiving notes into a simple handoff document. Your job is to make the information clear enough for another family member, friend, aide, nurse, or helper to understand.
+
+Important boundaries:
+- Do not give medical advice.
+- Do not change medication instructions.
+- Do not make assumptions about care needs I did not mention.
+- Help organize the information clearly and flag questions I should verify with a clinician, pharmacist, agency, or family decision-maker.
+
+Care situation:
+- Person being cared for: [relationship/name or initials]
+- Main conditions or needs, if relevant: [brief description]
+- Living situation: [lives alone / lives with me / assisted living / other]
+- Current concerns: [concerns]
+- Medications: [list or say “not included”]
+- Appointments: [appointments]
+- Daily routine: [morning / afternoon / evening / bedtime]
+- Mobility, food, toileting, memory, communication, or safety notes: [details]
+- Emergency contacts or important contacts: [names/roles only; avoid private numbers if not needed]
+- What another helper most needs to know: [details]
+
+Please create:
+
+1. Simple daily handoff note
+Make it clear, short, and practical.
+
+2. Today’s priorities
+List the top things a helper should pay attention to today.
+
+3. Medication reminder section
+Create a place to record medication names/times, but remind me to verify all medication instructions with the official medication list, clinician, or pharmacist.
+
+4. Appointment and follow-up section
+Summarize upcoming appointments and what needs to be prepared.
+
+5. Safety and comfort notes
+Include mobility, fall risk, food, hydration, communication, pain, memory, or emotional support notes if I provided them.
+
+6. Questions to verify
+List anything unclear that should be checked with family, the care recipient, a clinician, pharmacist, or care agency.
+
+7. One-page version
+After the detailed handoff, create a shorter one-page version for quick use.</pre>
+    </div>
+
+    <div class="prompt-card" id="start-here-p5">
+      <div class="card-header">
+        <h3 class="prompt-title">Redact This Safely Before I Upload It</h3>
+        <button class="copy-btn" onclick="copyPrompt(this, `You are helping me prepare a document safely before I paste, upload, photograph, or summarize it in an AI tool.
+
+Important boundaries:
+- Do not ask me to share private information.
+- Do not need the actual private values.
+- Help me identify what to remove, cover, crop, blur, replace, or summarize before using AI.
+- If the document involves health care, benefits, taxes, legal rights, insurance, banking, identity, employment, housing, or children, be extra cautious.
+
+Document type:
+- Type of document: [letter / bill / EOB / medical report / tax notice / benefits letter / bank statement / insurance denial / lease / school document / other]
+- Who sent it: [sender]
+- What I want AI to help with after redaction: [explain / summarize / draft response / prepare questions / organize / compare]
+- Whether I plan to paste text or upload an image/PDF: [paste text / upload image / upload PDF / not sure]
+
+Please give me:
+
+1. Redaction checklist
+List every type of private information I should remove or cover before sharing.
+
+2. What to keep
+Tell me what information is usually safe and useful to keep so AI can still help, such as general document type, issue, dates/deadlines if needed, amounts if needed, and non-identifying context.
+
+3. Safer replacements
+Show examples of how to replace private details, such as:
+- [NAME]
+- [ACCOUNT NUMBER REMOVED]
+- [DATE REMOVED]
+- [ADDRESS REMOVED]
+- [MEMBER ID REMOVED]
+
+4. Document-specific risks
+Based on the document type, tell me any special risks, such as barcodes, QR codes, claim numbers, policy numbers, medical record numbers, or login links.
+
+5. Safer prompt to use afterward
+Write a safe prompt I can use after redacting the document.
+
+6. Final warning
+Remind me not to upload passwords, PINs, one-time codes, full Social Security numbers, full account numbers, or anything I would not want exposed.`)" aria-label="Copy prompt">Copy</button>
+      </div>
+      <div class="when-to-use">📌 <strong>When to use:</strong> Before pasting, uploading, photographing, or summarizing a private document.</div>
+      <pre class="prompt-text">You are helping me prepare a document safely before I paste, upload, photograph, or summarize it in an AI tool.
+
+Important boundaries:
+- Do not ask me to share private information.
+- Do not need the actual private values.
+- Help me identify what to remove, cover, crop, blur, replace, or summarize before using AI.
+- If the document involves health care, benefits, taxes, legal rights, insurance, banking, identity, employment, housing, or children, be extra cautious.
+
+Document type:
+- Type of document: [letter / bill / EOB / medical report / tax notice / benefits letter / bank statement / insurance denial / lease / school document / other]
+- Who sent it: [sender]
+- What I want AI to help with after redaction: [explain / summarize / draft response / prepare questions / organize / compare]
+- Whether I plan to paste text or upload an image/PDF: [paste text / upload image / upload PDF / not sure]
+
+Please give me:
+
+1. Redaction checklist
+List every type of private information I should remove or cover before sharing.
+
+2. What to keep
+Tell me what information is usually safe and useful to keep so AI can still help, such as general document type, issue, dates/deadlines if needed, amounts if needed, and non-identifying context.
+
+3. Safer replacements
+Show examples of how to replace private details, such as:
+- [NAME]
+- [ACCOUNT NUMBER REMOVED]
+- [DATE REMOVED]
+- [ADDRESS REMOVED]
+- [MEMBER ID REMOVED]
+
+4. Document-specific risks
+Based on the document type, tell me any special risks, such as barcodes, QR codes, claim numbers, policy numbers, medical record numbers, or login links.
+
+5. Safer prompt to use afterward
+Write a safe prompt I can use after redacting the document.
+
+6. Final warning
+Remind me not to upload passwords, PINs, one-time codes, full Social Security numbers, full account numbers, or anything I would not want exposed.</pre>
+    </div>
+  </div>
+</section>
+
 <section class="chapter-section" id="ch1">
   <div class="chapter-header">
     <span class="chapter-label">Chapter 1</span>
@@ -366,7 +828,7 @@
 </div>
 <div class="prompt-card" id="ch3-p3">
   <div class="card-header">
-    <h3 class="prompt-title">Needs personalising</h3>
+    <h3 class="prompt-title">Needs personalizing</h3>
     <button class="copy-btn" onclick="copyPrompt(this, "This feels too general. My specific situation is: [add your details]. Can you revise your answer with that in mind?")" aria-label="Copy prompt">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       Copy
@@ -404,13 +866,13 @@ Can you explain this in plain English? What does it mean and what, if anything, 
 <div class="prompt-card" id="ch3-p6">
   <div class="card-header">
     <h3 class="prompt-title">Writing a Letter or Email</h3>
-    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a [letter / email] to [who] about [the situation]. My goal is to [what you want to happen]. I am [brief description of your situation \u2014 e.g. a senior on a fixed income, a person with a disability, a long-time customer]. Please write this in a polite but firm tone, keep it under [length], and make it easy for me to personalise.")" aria-label="Copy prompt">
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a [letter / email] to [who] about [the situation]. My goal is to [what you want to happen]. I am [brief description of your situation \u2014 e.g. a senior on a fixed income, a person with a disability, a long-time customer]. Please write this in a polite but firm tone, keep it under [length], and make it easy for me to personalize.")" aria-label="Copy prompt">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       Copy
     </button>
   </div>
   <div class="when-to-use">📌 <strong>When to use:</strong> Any time you need to communicate firmly but politely in writing</div>
-  <pre class="prompt-text">I need to write a [letter / email] to [who] about [the situation]. My goal is to [what you want to happen]. I am [brief description of your situation — e.g. a senior on a fixed income, a person with a disability, a long-time customer]. Please write this in a polite but firm tone, keep it under [length], and make it easy for me to personalise.</pre>
+  <pre class="prompt-text">I need to write a [letter / email] to [who] about [the situation]. My goal is to [what you want to happen]. I am [brief description of your situation — e.g. a senior on a fixed income, a person with a disability, a long-time customer]. Please write this in a polite but firm tone, keep it under [length], and make it easy for me to personalize.</pre>
 </div>
 <div class="prompt-card" id="ch3-p7">
   <div class="card-header">
@@ -1414,7 +1876,7 @@ Format it simply — I want to stick this on my fridge.
 <div class="prompt-card" id="ch14-p1">
   <div class="card-header">
     <h3 class="prompt-title">I need to write a care summary for the person I care for.</h3>
-    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a care summary for the person I care for.\nAbout the person I care for:\n- Name: [first name]\n- Age: [age]\n- Primary health conditions: [list]\n- Cognitive state: [e.g. \"fully alert / early-stage dementia / significant memory loss\"]\nMedications (list each):\n- [Medication name]: [dose], [frequency], [what it is for]\nDaily routine:\n- Morning: [e.g. \"wakes at 7am, needs help getting to bathroom, medications with breakfast\"]\n- Midday: [e.g. \"lunch at noon, 1-hour nap, prefers TV in the afternoon\"]\n- Evening: [e.g. \"dinner at 5:30, medications, in bed by 9pm\"]\nImportant preferences and notes:\n- [e.g. \"becomes anxious if routine is disrupted \u2014 do not change meal times\"]\n- [e.g. \"responds well to being called by her nickname, not her full name\"]\n- [e.g. \"do not argue if she insists on something \u2014 redirect gently\"]\nKey contacts:\n- Doctor: [name, phone]\n- Pharmacy: [name, phone]\n- Emergency contact (other than me): [name, phone]\nPlease write a clear, well-organised care summary (2 pages maximum) that a\nsubstitute caregiver could read quickly and follow confidently.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
+    <button class="copy-btn" onclick="copyPrompt(this, "I need to write a care summary for the person I care for.\nAbout the person I care for:\n- Name: [first name]\n- Age: [age]\n- Primary health conditions: [list]\n- Cognitive state: [e.g. \"fully alert / early-stage dementia / significant memory loss\"]\nMedications (list each):\n- [Medication name]: [dose], [frequency], [what it is for]\nDaily routine:\n- Morning: [e.g. \"wakes at 7am, needs help getting to bathroom, medications with breakfast\"]\n- Midday: [e.g. \"lunch at noon, 1-hour nap, prefers TV in the afternoon\"]\n- Evening: [e.g. \"dinner at 5:30, medications, in bed by 9pm\"]\nImportant preferences and notes:\n- [e.g. \"becomes anxious if routine is disrupted \u2014 do not change meal times\"]\n- [e.g. \"responds well to being called by her nickname, not her full name\"]\n- [e.g. \"do not argue if she insists on something \u2014 redirect gently\"]\nKey contacts:\n- Doctor: [name, phone]\n- Pharmacy: [name, phone]\n- Emergency contact (other than me): [name, phone]\nPlease write a clear, well-organized care summary (2 pages maximum) that a\nsubstitute caregiver could read quickly and follow confidently.\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500")" aria-label="Copy prompt">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
       Copy
     </button>
@@ -1440,7 +1902,7 @@ Key contacts:
 - Doctor: [name, phone]
 - Pharmacy: [name, phone]
 - Emergency contact (other than me): [name, phone]
-Please write a clear, well-organised care summary (2 pages maximum) that a
+Please write a clear, well-organized care summary (2 pages maximum) that a
 substitute caregiver could read quickly and follow confidently.
 ───────────────────────────────────────────────────────</pre>
 </div>
@@ -1702,7 +2164,7 @@ If the question has a &quot;yes and no&quot; answer, give me both sides honestly
 </main>
 
 <footer class="site-footer">
-  <p>From <em>AI for Living Well with Disability</em> by Kailash Iyer &nbsp;·&nbsp; <a href="https://theaccessibleai.com">theaccessibleai.com</a></p>
+  <p>From <em>AI for Living Well with Disabilities</em> by Kailash Iyer &nbsp;·&nbsp; <a href="https://theaccessibleai.com">theaccessibleai.com</a></p>
   <p style="margin-top:0.4rem;">Paste any prompt into <a href="https://claude.ai" target="_blank">Claude</a>, <a href="https://chat.openai.com" target="_blank">ChatGPT</a>, or any AI tool — then fill in the [bracketed] details.</p>
 </footer>
 
